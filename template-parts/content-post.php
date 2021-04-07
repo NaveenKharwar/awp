@@ -23,9 +23,24 @@
 		<p><?php echo get_the_date(); ?></p>
 	</div>
 	<div class="col-sm-4">
-		<?php /* translators: 1: number of categories. */ ?>
-		<p><?php printf( _nx( 'One Comment', '%1$s Comments', get_comments_number(), 'comments title', 'awp' ), number_format_i18n( get_comments_number() ) ); ?></p>
-		<span><a href="<?php the_permalink(); ?>#commentform">Join The Conversation</a></span>
+		<p>
+		<?php
+		$awp_comment_count = get_comments_number();
+		if ( '1' === $awp_comment_count ) {
+			printf(
+				/* translators: 1: title. */
+				esc_html__( 'One comment', 'awp' )
+			);
+		} else {
+			printf(
+				/* translators: 1: comment count number, 2: title. */
+				esc_html( _nx( '%1$s comment', '%1$s comments', $awp_comment_count, 'comments title', 'awp' ) ),
+				number_format_i18n( $awp_comment_count ) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			);
+		}
+		?>
+		</p>
+		<span><a href="<?php the_permalink(); ?>#commentform">Join the conversation</a></span>
 	</div>
 </div><!-- .entry-meta -->
 
@@ -37,7 +52,7 @@
 	}
 	?>
 	<header class="entry-header">
-		<?php 
+		<?php
 		$awp_categories_list = get_the_category_list();
 		if ( $awp_categories_list ) {
 			/* translators: 1: list of categories. */
