@@ -120,7 +120,7 @@ add_action( 'after_setup_theme', 'awp_setup' );
  * Enqueue styles for Editor.
  */
 function awp_block_editor_styles() {
-    wp_enqueue_style( 'awp-editor-styles', get_theme_file_uri( 'assets/css/style-editor.css' ), false, '1.0', 'all' );
+	wp_enqueue_style( 'awp-editor-styles', get_theme_file_uri( 'assets/css/style-editor.css' ), false, '1.0', 'all' );
 }
 add_action( 'enqueue_block_editor_assets', 'awp_block_editor_styles' );
 
