@@ -26,12 +26,12 @@
 	<header id="masthead" class="site-header">
 		<nav class="navbar navbar-expand-lg navbar-light" role="navigation">
 			<div class="container">
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-controls="bs-example-navbar-collapse-1" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'awp' ); ?>">
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'awp' ); ?>">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-				<div class="site-logo">
+				<div class="site-logo d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
 					<?php if ( has_custom_logo() ) : ?>
-						<?php 
+						<?php
 						$awp_custom_logo_id   = get_theme_mod( 'custom_logo' );
 						$awp_custom_logo_data = wp_get_attachment_image_src( $awp_custom_logo_id, 'full' );
 						$awp_custom_logo_url  = $awp_custom_logo_data[0];
@@ -49,12 +49,12 @@
 								'theme_location'    => 'primary',
 								'depth'             => 2,
 								'container'         => 'div',
-								'container_class'   => 'collapse navbar-collapse',
-								'container_id'      => 'bs-example-navbar-collapse-1',
-								'menu_class'        => 'navbar-nav ml-auto mb-2 mb-lg-0',
+								'container_class'   => 'collapse navbar-collapse justify-content-end',
+								'container_id'      => 'navbarToggleExternalContent',
+								'menu_class'        => 'navbar-nav nav nav-pills',
 								'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
 								'walker'            => new WP_Bootstrap_Navwalker(),
-							) 
+							)
 						);
 						?>
 			</div>
