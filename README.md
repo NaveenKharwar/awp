@@ -9,13 +9,13 @@ Just Another Fantastic WordPress Theme for your new WordPress website built by s
 <img src="https://user-images.githubusercontent.com/41269766/88546409-f75cf880-d039-11ea-8007-08ebc5693990.jpg">
 
 
-**Contributors:** [Naveen Kharwar](https://profiles.wordpress.org/naveenkharwar), [Akshat Gupta](https://profiles.wordpress.org/username) and [LucenThemes](https://profiles.wordpress.org/lucenthemes)
+**Contributors:** [Naveen Kharwar](https://profiles.wordpress.org/naveenkharwar) and [LucenThemes](https://profiles.wordpress.org/lucenthemes)
 **License:** GNU General Public License v2 or later
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html
 **Tags:** custom-menu, custom-logo, entertainment, featured-images, full-width-template, one-column, two-columns, left-sidebar, e-commerce, right-sidebar, custom-colors, editor-style, featured-images, full-width-template, microformats, post-formats, rtl-language-support, theme-options, threaded-comments, translation-ready, blog
 **Tested up to:** 5.4.2
 **Requires PHP:** 5.6
-**Stable tag:** 0.0.2
+**Stable tag:** 0.0.3
 
 
 Agility WP Theme is a blazing fast theme for Bloggers, Business, WooCommerce, and Portfolio, etc. Build on the top of Bootstrap 5 with some amazing customization options. best Suited for any business.
@@ -65,9 +65,9 @@ External resources linked to the theme.
 
 ### Framework and Libraries
 - [Underscores | A Starter Theme for WordPress](https://underscores.me/)  - GPL-2.0 License
-- [Bootstrap](https://github.com/twbs/bootstrap) v5.0.0-alpha1 - MIT License
-- [Propperjs](https://popper.js.org/) v2.4.4 - MIT License
-- [Bootstrap Icon](https://icons.getbootstrap.com/) v1.0.0-alpha5 -  MIT License
+- [Bootstrap](https://github.com/twbs/bootstrap) - MIT License
+- [Propperjs](https://popper.js.org/) - MIT License
+- [Bootstrap Icon](https://icons.getbootstrap.com/) -  MIT License
 
 ### Frequently Asked Question
 
@@ -118,11 +118,7 @@ Ans. Yes it is ready for Bootstrap 5.
 - https://naveenkharwar.dev
 - https://twitter.com/naveenkharwar0
 
-**Akshat Gupta**
-- http://akshatgupta.me
-- https://www.behance.net/helloakshat
-
 <p align="center">
-<img width="90" src="https://avatars0.githubusercontent.com/u/67482313?s=400&u=0058defa98c37122fc6f7e7cc88559a8340d2b1f&v=4">
+<img width="90" src="https://user-images.githubusercontent.com/37496983/88413968-c0000900-cdf9-11ea-8d93-017b54823510.png">
 </p>
-<p align="center">A naveenkharwar Product, Made with ☕</p>
+<p align="center">A UniteMedia Product, Made with ☕</p>
