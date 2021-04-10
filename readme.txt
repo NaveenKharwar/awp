@@ -1,11 +1,11 @@
 == Agility WP ==
-Contributors: naveenkharwar, helloakshat and LucenThemes
+Contributors: naveenkharwar and LucenThemes
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: custom-menu, custom-logo, entertainment, featured-images, full-width-template, one-column, two-columns, left-sidebar, e-commerce, right-sidebar, custom-colors, editor-style, featured-images, full-width-template, microformats, post-formats, rtl-language-support, theme-options, threaded-comments, translation-ready, blog
 Tested up to: 5.4.2
 Requires PHP: 5.6 or higher
-Stable tag: 0.0.2
+Stable tag: 0.0.3
 
 Agility WP Theme is a blazing fast theme for Bloggers, Business, WooCommerce, and Portfolio, etc. Build on the top of Bootstrap 5 with some amazing customization options. best Suited for any business.
 
@@ -47,16 +47,20 @@ Using FTP
 = Framework and Libraries =
 
 * Underscores | A Starter Theme for WordPress - GPL-2.0 License
-* Bootstrap v5.0.0-alpha1 - MIT License
-* Propperjs v2.4.4 - MIT License
-* Bootstrap Icon v1.0.0-alpha5 - MIT License
+* Bootstrap - MIT License
+* Propperjs - MIT License
+* Bootstrap Icon - MIT License
 
 == Changelog ==
+
+=v0.0.3=
+- Modify Navigation
+- Fix Accessibility
 
 =v0.0.2=
 - Add Style editor
 - Gutenberg Compatible
--  Categories badge fix
+- Categories badge fix
 - Screenshot Change
 - Change Site logo size
 
