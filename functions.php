@@ -9,7 +9,7 @@
 
 if ( ! defined( 'AWP_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'AWP_VERSION', '0.0.2' );
+	define( 'AWP_VERSION', '0.0.3' );
 }
 
 if ( ! function_exists( 'awp_setup' ) ) :
