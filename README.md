@@ -121,4 +121,4 @@ Ans. Yes it is ready for Bootstrap 5.
 <p align="center">
 <img width="90" src="https://user-images.githubusercontent.com/37496983/88413968-c0000900-cdf9-11ea-8d93-017b54823510.png">
 </p>
-<p align="center">A UniteMedia Product, Made with ☕</p>
+<p align="center">A UniteMedia Product</p>
