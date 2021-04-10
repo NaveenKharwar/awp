@@ -13,7 +13,7 @@ a {
 	}
 
 	&:focus {
-		outline: thin dotted;
+		outline: $primary-light auto 1px;
 	}
 
 	&:hover,

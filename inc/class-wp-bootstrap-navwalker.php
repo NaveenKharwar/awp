@@ -212,12 +212,12 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) :
 
 			// If the item has_children add atts to <a>.
 			if ( $this->has_children && 0 === $depth ) {
-				$atts['href']          = '#';
-				$atts['data-bs-toggle']   = 'dropdown';
-				$atts['aria-haspopup'] = 'true';
-				$atts['aria-expanded'] = 'false';
-				$atts['class']         = 'dropdown-toggle nav-link';
-				$atts['id']            = 'menu-item-dropdown-' . $item->ID;
+				$atts['href']           = '#';
+				$atts['data-bs-toggle'] = 'dropdown';
+				$atts['aria-haspopup']  = 'true';
+				$atts['aria-expanded']  = 'false';
+				$atts['class']          = 'dropdown-toggle nav-link';
+				$atts['id']             = 'menu-item-dropdown-' . $item->ID;
 			} else {
 				if ( true === $this->has_schema ) {
 					$atts['itemprop'] = 'url';
@@ -365,7 +365,7 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) :
 			// The fallback menu.
 			$class            = $args['menu_class'] ? ' class="menu-fallback-menu ' . esc_attr( $args['menu_class'] ) . '"' : ' class="menu-fallback-menu"';
 			$id               = $args['menu_id'] ? ' id="' . esc_attr( $args['menu_id'] ) . '"' : '';
-			$fallback_output .= '<ul' . $id . $class . '>';
+			$fallback_output .= '<ul' . $id . $class . ' role="menu">';
 			$fallback_output .= '<li class="nav-item"><a href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '" class="nav-link" title="' . esc_attr__( 'Add a menu', 'wp-bootstrap-navwalker' ) . '">' . esc_html__( 'Add a menu', 'wp-bootstrap-navwalker' ) . '</a></li>';
 			$fallback_output .= '</ul>';
 

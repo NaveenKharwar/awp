@@ -3,13 +3,37 @@ $accent-font: "Catamaran", sans-serif;
 
 $theme-colors: (
   "primary": #ff4d64,
-  "secondary": #333333,
+  "secondary": #f5f5f5,
   "accent": #868e96,
   "light": #f8f9fa,
 ) !default;
 
 $primary-light: #f56e7f;
 $input-color: $light;
+
+
+$font-weight-lighter:         lighter !default;
+$font-weight-light:           300 !default;
+$font-weight-normal:          400 !default;
+$font-weight-medium:          600!default;
+$font-weight-bold:            700 !default;
+$font-weight-bolder:          bolder !default;
+
+$utilities: () !default;
+$utilities: map-merge((
+  "font-weight": (
+    property: font-weight,
+    class: fw,
+    values: (
+      light: $font-weight-light,
+      lighter: $font-weight-lighter,
+      normal: $font-weight-normal,
+      medium: $font-weight-medium,
+      bold: $font-weight-bold,
+      bolder: $font-weight-bolder
+    )
+  )
+), $utilities);
 
 @import "../../../node_modules/bootstrap/scss/bootstrap.scss";
 

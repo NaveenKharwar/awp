@@ -234,10 +234,8 @@ if ( class_exists( 'WooCommerce' ) ) {
 }
 
 if ( ! file_exists( get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php' ) ) {
-	// File does not exist... return an error.
 	return new WP_Error( 'class-wp-bootstrap-navwalker-missing', __( 'It appears the class-wp-bootstrap-navwalker.php file may be missing.', 'awp' ) );
 } else {
-	// File exists... require it.
 	require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
 }
 
@@ -248,10 +246,11 @@ if ( ! file_exists( get_template_directory() . '/inc/class-wp-bootstrap-navwalke
  * @return Post Link
  */
 function awp_excerpt_more( $more ) {
-	global $post;
-	return '<p class="text-right"><a class="read-more_tag " href="' . get_permalink( $post->ID ) . '"> Continue Reading <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-arrow-right-short" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" d="M8.146 4.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.793 8 8.146 5.354a.5.5 0 0 1 0-.708z"/>
-  <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5H11a.5.5 0 0 1 0 1H4.5A.5.5 0 0 1 4 8z"/>
-</svg></a></p>';
+	return sprintf(
+		'<p class="text-end"><a href="%1$s" class="ead-more_tag">%2$s</a></p>',
+		esc_url( get_permalink( get_the_ID() ) ),
+		/* translators: %s: arrow icon */
+		sprintf( __( 'Continue reading %s', 'awp' ), '<span> &#8594; </span>' )
+	);
 }
 add_filter( 'excerpt_more', 'awp_excerpt_more' );
