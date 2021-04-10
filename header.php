@@ -60,30 +60,15 @@
 			</div>
 		</nav>
 
-		<?php
-
-if (get_header_image()) { ?>
-	<div class="header-image" style="background-image: url(<?php header_image(); ?>);">
-		<div class="container">
-		<div class="row">
-			<div class="site-branding">
-				<h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
-				<p class="site-description"><?php bloginfo( 'description' ); ?></p>
-		</div>
-			</div>
-		</div>
-	</div>
-<?php } else { ?>
 	<div class="bg-secondary py-5">
 		<div class="container">
-			<div class="site-branding d-flex justify-content-center">
-				<div class="text-center">
+			<div class="site-branding d-flex justify-content-start">
+				<div class="text-start">
 					<h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
 					<p class="site-description"><?php bloginfo( 'description' ); ?></p>
 				</div>
 			</div>
 		</div>
 		</div>.
-<?php } ?>
 
 	</header><!-- #masthead -->

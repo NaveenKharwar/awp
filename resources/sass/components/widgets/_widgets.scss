@@ -18,8 +18,8 @@
     }
   }
   .sidebar-block {
-    border: 1px solid $accent;
-    padding: 0 37px 18px;
+    background-color: $light;
+    padding: 37px 18px;
     margin-bottom: 4rem;
     &:first-child {
       margin-top: 5rem;
@@ -30,16 +30,13 @@
   }
   .widget-title {
     font-family: $accent-font;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
+    border-bottom: 1px solid #e1e1e1;
     text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 0.1em;
-    display: inline-block;
-    position: relative;
-    top: -15px;
-    padding: 0 16px;
-    background-color: #fff;
-    z-index: 5;
+    margin-bottom: ($spacer * 2);
+    padding-bottom: ($spacer * 1);
   }
   ul {
     margin-left: 0;
