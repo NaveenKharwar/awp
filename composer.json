@@ -1,17 +1,17 @@
 {
-    "name": "lucenthemes/awp",
+    "name": "lucenthemes/agilitywp",
     "type": "wordpress-theme",
     "description": "Agility WP Theme is a blazing fast theme for Bloggers, Business, WooCommerce, and Portfolio, etc. Build on the top of Bootstrap 5 with some amazing customization options best suited for any business.",
     "keywords": [
         "WordPress",
         "Themes"
     ],
-    "homepage": "https://github.com/naveenkharwar/awp",
+    "homepage": "https://github.com/naveenkharwar/agilitywp",
     "license": "GPL-2.0-or-later",
     "authors": [
         {
             "name": "Contributors",
-            "homepage": "https://github.com/naveenkharwar/awp/graphs/contributors"
+            "homepage": "https://github.com/naveenkharwar/agilitywp/graphs/contributors"
         }
     ],
     "require": {
@@ -30,7 +30,7 @@
         "make-pot": "wp i18n make-pot . languages/_s.pot"
     },
     "support": {
-        "issues": "https://github.com/naveenkharwar/awp/issues",
-        "source": "https://github.com/naveenkharwar/awp"
+        "issues": "https://github.com/naveenkharwar/agilitywp/issues",
+        "source": "https://github.com/naveenkharwar/agilitywp"
     }
 }

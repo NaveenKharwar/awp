@@ -8,13 +8,13 @@
     "WordPress",
     "Theme"
   ],
-  "homepage": "https://github.com/naveenkharwar/awp#readme",
+  "homepage": "https://github.com/naveenkharwar/agilitywp#readme",
   "repository": {
     "type": "git",
-    "url": "git@github.com:naveenkharwar/awp.git"
+    "url": "git@github.com:naveenkharwar/agilitywp.git"
   },
   "bugs": {
-    "url": "https://github.com/naveenkharwar/awp/issues"
+    "url": "https://github.com/naveenkharwar/agilitywp/issues"
   },
   "devDependencies": {
     "@wordpress/scripts": "^14.1.0",

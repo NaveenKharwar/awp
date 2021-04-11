@@ -25,7 +25,7 @@ From within WordPress
 Using FTP
 1. Download Agility WP
 2. Using an FTP client to access your host web server and navigate to /wp-content/themes/ directory.
-3. Upload the Theme folder (awp.zip) to this directory on your host server.
+3. Upload the Theme folder (agilitywp.zip) to this directory on your host server.
 4. Login to WordPress Dashboard.
 5. Select the Appearance screen, then Themes.
 6. Look for Agility WP and Activate it.

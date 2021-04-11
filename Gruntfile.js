@@ -56,7 +56,7 @@ module.exports = function (grunt) {
     compress: {
       build: {
         options: {
-          archive: "awp.zip",
+          archive: "agilitywp.zip",
         },
         files: [
           {
@@ -70,7 +70,7 @@ module.exports = function (grunt) {
     },
     clean: {
       dist: {
-        src: ["build", "awp.zip"],
+        src: ["build", "agilitywp.zip"],
       },
     },
     watch: {

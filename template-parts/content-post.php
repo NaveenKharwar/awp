@@ -25,17 +25,17 @@
 	<div class="col-sm-4">
 		<p>
 		<?php
-		$awp_comment_count = get_comments_number();
-		if ( '1' === $awp_comment_count ) {
+		$agilitywp_comment_count = get_comments_number();
+		if ( '1' === $agilitywp_comment_count ) {
 			printf(
 				/* translators: 1: title. */
-				esc_html__( 'One comment', 'awp' )
+				esc_html__( 'One comment', 'agilitywp' )
 			);
 		} else {
 			printf(
 				/* translators: 1: comment count number, 2: title. */
-				esc_html( _nx( '%1$s comment', '%1$s comments', $awp_comment_count, 'comments title', 'awp' ) ),
-				number_format_i18n( $awp_comment_count ) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				esc_html( _nx( '%1$s comment', '%1$s comments', $agilitywp_comment_count, 'comments title', 'agilitywp' ) ),
+				number_format_i18n( $agilitywp_comment_count ) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			);
 		}
 		?>
@@ -47,16 +47,16 @@
 	<?php
 	if ( has_post_thumbnail() ) {
 		?>
-			<?php awp_post_thumbnail(); ?>
+			<?php agilitywp_post_thumbnail(); ?>
 		<?php
 	}
 	?>
 	<header class="entry-header">
 		<?php
-		$awp_categories_list = get_the_category_list();
-		if ( $awp_categories_list ) {
+		$agilitywp_categories_list = get_the_category_list();
+		if ( $agilitywp_categories_list ) {
 			/* translators: 1: list of categories. */
-			printf( '<span class="cat-links">' . esc_html__( '%1$s', 'awp' ) . '</span>', $awp_categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			printf( '<span class="cat-links">' . esc_html__( '%1$s', 'agilitywp' ) . '</span>', $agilitywp_categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 		?>
 			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
@@ -68,7 +68,7 @@
 				sprintf(
 					wp_kses(
 						/* translators: %s: Name of current post. Only visible to screen readers */
-						__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'awp' ),
+						__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'agilitywp' ),
 						array(
 							'span' => array(
 								'class' => array(),
@@ -82,14 +82,14 @@
 
 			wp_link_pages(
 				array(
-					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'awp' ),
+					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'agilitywp' ),
 					'after'  => '</div>',
 				)
 			);
 			?>
 	</div><!-- .entry-content -->
 	<footer class="entry-footer">
-		<?php awp_entry_footer(); ?>
+		<?php agilitywp_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 
 </article><!-- #post-<?php the_ID(); ?> -->

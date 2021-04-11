@@ -16,7 +16,7 @@
 	if ( has_post_thumbnail() ) {
 		?>
 		<div class="blog-thumbnail img-square-wrapper col-md-5">
-			<?php awp_post_thumbnail(); ?>
+			<?php agilitywp_post_thumbnail(); ?>
 		</div>
 		<?php
 	}
@@ -34,7 +34,7 @@
 				sprintf(
 					wp_kses(
 						/* translators: %s: Name of current post. Only visible to screen readers */
-						__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'awp' ),
+						__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'agilitywp' ),
 						array(
 							'span' => array(
 								'class' => array(),
@@ -48,7 +48,7 @@
 
 			wp_link_pages(
 				array(
-					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'awp' ),
+					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'agilitywp' ),
 					'after'  => '</div>',
 				)
 			);
@@ -64,10 +64,10 @@
 		</div>
 		<div class="cat-meta">
 			<?php
-				$awp_categories_list = get_the_category_list( esc_html__( ', ', 'awp' ) );
-			if ( $awp_categories_list ) {
+				$agilitywp_categories_list = get_the_category_list( esc_html__( ', ', 'agilitywp' ) );
+			if ( $agilitywp_categories_list ) {
 				/* translators: 1: list of categories. */
-				printf( '<span class="cat-links">' . esc_html__( '%1$s', 'awp' ) . '</span>', $awp_categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				printf( '<span class="cat-links">' . esc_html__( '%1$s', 'agilitywp' ) . '</span>', $agilitywp_categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 			?>
 		</div>

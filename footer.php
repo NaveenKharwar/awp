@@ -26,16 +26,16 @@
 <footer id="colophon" class="site-footer">
 	<div class="container">
 			<div class="site-info col-12">
-				<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'awp' ) ); ?>">
+				<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'agilitywp' ) ); ?>">
 				<?php
 				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'awp' ), 'WordPress' );
+				printf( esc_html__( 'Proudly powered by %s', 'agilitywp' ), 'WordPress' );
 				?>
 			</a>
 			<span class="sep"> | </span>
 			<?php
 				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'awp' ), 'awp', '<a href="https://lucenthemes.com/">Luncent Themes</a>' );
+				printf( esc_html__( 'Theme: %1$s by %2$s.', 'agilitywp' ), 'agilitywp', '<a href="https://lucenthemes.com/">Luncent Themes</a>' );
 			?>
 		</div><!-- .site-info -->
 	</div>

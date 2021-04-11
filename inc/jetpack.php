@@ -14,13 +14,13 @@
  * See: https://jetpack.com/support/responsive-videos/
  * See: https://jetpack.com/support/content-options/
  */
-function awp_jetpack_setup() {
+function agilitywp_jetpack_setup() {
 	// Add theme support for Infinite Scroll.
 	add_theme_support(
 		'infinite-scroll',
 		array(
 			'container' => 'main',
-			'render'    => 'awp_infinite_scroll_render',
+			'render'    => 'agilitywp_infinite_scroll_render',
 			'footer'    => 'page',
 		)
 	);
@@ -33,7 +33,7 @@ function awp_jetpack_setup() {
 		'jetpack-content-options',
 		array(
 			'post-details' => array(
-				'stylesheet' => 'awp-style',
+				'stylesheet' => 'agilitywp-style',
 				'date'       => '.posted-on',
 				'categories' => '.cat-links',
 				'tags'       => '.tags-links',
@@ -48,12 +48,12 @@ function awp_jetpack_setup() {
 		)
 	);
 }
-add_action( 'after_setup_theme', 'awp_jetpack_setup' );
+add_action( 'after_setup_theme', 'agilitywp_jetpack_setup' );
 
 /**
  * Custom render function for Infinite Scroll.
  */
-function awp_infinite_scroll_render() {
+function agilitywp_infinite_scroll_render() {
 	while ( have_posts() ) {
 		the_post();
 		if ( is_search() ) :

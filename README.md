@@ -1,6 +1,6 @@
 [![Open Source Love](https://badges.frapsoft.com/os/v3/open-source-175x29.png?v=103)](https://github.com/ellerbrock/open-source-badges/)
 
-![GitHub repo size](https://img.shields.io/github/repo-size/naveenkharwar/awp?label=We%20are%20Just) ![GitHub](https://img.shields.io/github/license/naveenkharwar/awp?label=Proudly%20Open%20Source) ![WordPress Theme Version](https://img.shields.io/wordpress/theme/v/awp?label=Theme%20Version) ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/naveenkharwar/awp)
+![GitHub repo size](https://img.shields.io/github/repo-size/naveenkharwar/agilitywp?label=We%20are%20Just) ![GitHub](https://img.shields.io/github/license/naveenkharwar/agilitywp?label=Proudly%20Open%20Source) ![WordPress Theme Version](https://img.shields.io/wordpress/theme/v/agilitywp?label=Theme%20Version) ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/naveenkharwar/agilitywp)
 
 Just Another Fantastic WordPress Theme for your new WordPress website built by some amazing young thoughts from the community.
 
@@ -42,9 +42,9 @@ Welcome to LucenWorld.
 
 ### Using FTP
 
-1. Download [Agility WP](https://www.wordpress.org/themes/awp)
+1. Download [Agility WP](https://www.wordpress.org/themes/agilitywp)
 2. Using an FTP client to access your host web server and navigate to /wp-content/themes/ directory.
-3. Upload the Theme folder (awp.zip) to this directory on your host server.
+3. Upload the Theme folder (agilitywp.zip) to this directory on your host server.
 4. Login to WordPress Dashboard.
 5. Select the Appearance screen, then Themes.
 6. Look for Agility WP and Activate it.
@@ -79,10 +79,6 @@ Ans. AgilityWP Theme is just not a theme, it is a pack of power, speed, and reli
 
 Ans. AgilityWP is free and always will be free. You will be charged only for DEMO which is totally up to you, whether you want to use the DEMO or not. You can simply use AgilityWP as it is.
 
-**Q3. Why is the version of AgilityWP starts from v0.0.2?**
-
-Ans. As we mentioned above AgilityWP theme is in its early phase, and we want to improve our theme as much as possible by version 1.00 releases.
-
 **Q4. Where can we get support for this theme?**
 
 Ans. You can always visit the WordPress forum of the AgilityWP Theme.
@@ -97,11 +93,11 @@ Ans. There are a various method where you can download this theme
 
 **Q6. Can we request specific features and if we can then what will be the procedure?**
 
-Ans. Yes, you can request a specific feature by creating <a href="https://github.com/naveenkharwar/awp/issues/new?assignees=&labels=&template=feature_request.md&title=">Feature Request</a>. The implementation of that feature will be based on how many users are asking for that feature and that feature will not invite any future conflict or security issues.
+Ans. Yes, you can request a specific feature by creating <a href="https://github.com/naveenkharwar/agilitywp/issues/new?assignees=&labels=&template=feature_request.md&title=">Feature Request</a>. The implementation of that feature will be based on how many users are asking for that feature and that feature will not invite any future conflict or security issues.
 
 **Q7. Where to report bugs (if any) in the Theme?**
 
-Ans. You can create issues in this repository by clicking on <a href="https://github.com/naveenkharwar/awp/issues/new?assignees=&labels=&template=bug_report.md&title=">Create Bugs</a>
+Ans. You can create issues in this repository by clicking on <a href="https://github.com/naveenkharwar/agilitywp/issues/new?assignees=&labels=&template=bug_report.md&title=">Create Bugs</a>
 
 **Q8. Why did we decide to not using JQuery in the AgilityWP Theme?**
 
