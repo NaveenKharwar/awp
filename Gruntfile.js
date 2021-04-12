@@ -8,20 +8,16 @@ module.exports = function (grunt) {
         },
         files: {
           "style.css": "resources/sass/style.scss",
+          "assets/css/theme.css": "resources/sass/theme.scss",
           "assets/css/style-editor.css":
             "resources/sass/editor/style-editor.scss",
         },
       },
     },
     cssmin: {
-      options: {
-        mergeIntoShorthands: false,
-        roundingPrecision: -1,
-        report: "gzip",
-      },
       target: {
-        src: ["style.css"],
-        dest: "style.min.css",
+        src: ["assets/css/theme.css"],
+        dest: "assets/css/theme.min.css",
       },
     },
     uglify: {
@@ -79,6 +75,26 @@ module.exports = function (grunt) {
         tasks: ["sass", "cssmin"],
       },
     },
+    version: {
+      stylesheet: {
+        options: {
+          prefix: 'Version\\:\\s+'
+        },
+        src: 'style.css'
+      },
+      scssStylesheet: {
+        options: {
+          prefix: 'Version\\:\\s+'
+        },
+        src: 'resources/sass/style.scss'
+      },
+      functions: {
+        options: {
+          prefix: 'AGILITYWP_VERSION\', \''
+        },
+        src: 'functions.php'
+      },
+    },
   });
   grunt.loadNpmTasks("grunt-contrib-sass");
   grunt.loadNpmTasks("grunt-contrib-watch");
@@ -87,6 +103,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks("grunt-contrib-compress");
   grunt.loadNpmTasks("grunt-contrib-clean");
   grunt.loadNpmTasks("grunt-contrib-uglify");
+  grunt.loadNpmTasks('grunt-version');
   // Watch Task
   grunt.registerTask("default", ["watch"]);
   // Release Task
