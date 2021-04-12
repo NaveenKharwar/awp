@@ -28,7 +28,7 @@
 
   .nav-links {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: stretch;
   }
 
@@ -37,11 +37,25 @@
   }
   .nav-next,
   .nav-previous {
-    background-color: $accent;
     height: 100%;
-    padding: 1rem 2rem;
+    padding: 1rem 0;
     -webkit-transition: all 0.5s;
     -o-transition: all 0.5s;
     transition: all 0.5s;
+    a {
+      display: flex;
+      flex-direction: column;
+      .nav-subtitle {
+        color: $black;
+        font-size: 0.8rem;;
+      }
+      .nav-title {
+        font-weight: $font-weight-bold;
+      }
+    }
+    :first-child {
+      font-weight: $font-weight-bold;
+      text-transform: uppercase;
+    }
   }
 }

@@ -6,6 +6,7 @@
 .post,
 .page {
   margin: 0 0 1.5em;
+  overflow: hidden
 }
 
 .post {
@@ -76,7 +77,7 @@
 .page-content,
 .entry-content,
 .entry-summary {
-  margin: 1.2em 0 0;
+  margin: 1.2em 0 1.2rem;
 }
 
 .page-links {
@@ -123,18 +124,20 @@ article {
 .single-post {
   .entry-header {
     .cat-links {
-        display: block;
-        margin-bottom: 1rem;
-      a {
-        background-color: $primary;
-        border-radius: 0px;
-        color: $white;
-        display: inline-block;
-        font-size: 12px;
-        font-weight: 600;
-        margin: 0.2rem 0 0 0;
-        padding: 0.3rem 1rem;
-      }
+      margin-bottom: 1rem;
+      .post-categories {
+          display: flex;
+          a {
+            background-color: $red-100;
+            border-radius: 0px;
+            color: $primary;
+            display: inline-block;
+            font-size: 12px;
+            font-weight: $font-weight-bold;
+            margin: 0.2rem 0.2rem 0 0.2rem;
+            padding: 0.3rem 1rem;
+          }
+        }
     }
   }
 }

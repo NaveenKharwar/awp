@@ -88,7 +88,7 @@
 			);
 			?>
 	</div><!-- .entry-content -->
-	<footer class="entry-footer">
+	<footer class="entry-footer d-flex justify-content-between align-items-center border-top border-bottom py-4">
 		<?php agilitywp_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 
