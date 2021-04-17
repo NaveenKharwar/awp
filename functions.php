@@ -117,14 +117,6 @@ endif;
 add_action( 'after_setup_theme', 'agilitywp_setup' );
 
 /**
- * Enqueue styles for Editor.
- */
-function agilitywp_block_editor_styles() {
-	wp_enqueue_style( 'agilitywp-editor-styles', get_theme_file_uri( 'assets/css/style-editor.css' ), false, '1.0', 'all' );
-}
-add_action( 'enqueue_block_editor_assets', 'agilitywp_block_editor_styles' );
-
-/**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
  * Priority 0 to make it available to lower priority callbacks.
@@ -181,7 +173,15 @@ function agilitywp_widgets_init() {
 }
 add_action( 'widgets_init', 'agilitywp_widgets_init' );
 
-/**x
+/**
+ * Enqueue styles for Editor.
+ */
+function agilitywp_block_editor_styles() {
+	wp_enqueue_style( 'agilitywp-editor-styles', get_theme_file_uri( 'assets/css/style-editor.css' ), false, AGILITYWP_VERSION, 'all' );
+}
+add_action( 'enqueue_block_editor_assets', 'agilitywp_block_editor_styles' );
+
+/**
  * Enqueue scripts and styles.
  */
 function agilitywp_scripts() {
