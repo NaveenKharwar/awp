@@ -5,7 +5,11 @@
 </p>
 
 <p align="center">
-![GitHub repo size](https://img.shields.io/github/repo-size/naveenkharwar/agilitywp?label=We%20are%20Just) ![GitHub](https://img.shields.io/github/license/naveenkharwar/agilitywp?label=Proudly%20Open%20Source) ![WordPress Theme Version](https://img.shields.io/wordpress/theme/v/agilitywp?label=Theme%20Version) ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/naveenkharwar/agilitywp)
+    <a href="LICENSE.md">
+        <img alt="GPL License" src="https://img.shields.io/github/license/naveenkharwar/agilitywp?label=Proudly%20Open%20Source">
+    </a>
+    <img alt="GitHub package.json version" src="https://img.shields.io/github/package-json/v/naveenkharwar/agilitywp">
+    <img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/w/naveenkharwar/agilitywp">
 </p>
 
 <p align="center">
