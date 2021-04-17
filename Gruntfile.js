@@ -7,7 +7,6 @@ module.exports = function (grunt) {
           style: "expanded",
         },
         files: {
-          "style.css": "resources/sass/style.scss",
           "assets/css/theme.css": "resources/sass/theme.scss",
           "assets/css/style-editor.css":
             "resources/sass/editor/style-editor.scss",
@@ -15,9 +14,10 @@ module.exports = function (grunt) {
       },
     },
     cssmin: {
-      target: {
+      build: {
+        expand: true,
         src: ["assets/css/theme.css"],
-        dest: "assets/css/theme.min.css",
+        ext: ".min.css",
       },
     },
     uglify: {
@@ -43,7 +43,11 @@ module.exports = function (grunt) {
           "!composer.lock",
           "!phpcs.xml.dist",
           "!README.md",
+          "!CHANGELOG.md",
           "!style.css.map",
+          "!assets/css/**.css.map",
+          // "!theme.css.map",
+          // "!style-editor.css.map",
           "!woocommerce.css.map",
         ],
         dest: "build/",
@@ -52,47 +56,44 @@ module.exports = function (grunt) {
     compress: {
       build: {
         options: {
-          archive: "agilitywp.zip",
+          archive: "build/<%= pkg.name %>.zip",
         },
         files: [
           {
             expand: true,
             cwd: "build/",
             src: ["**/*"],
-            dist: "/",
+            dist: "<%= pkg.name %>.zip/",
           },
         ],
       },
     },
     clean: {
       dist: {
-        src: ["build", "agilitywp.zip"],
-      },
-    },
-    watch: {
-      css: {
-        files: "**/*.scss",
-        tasks: ["sass", "cssmin"],
+        src: ["build"],
       },
     },
     version: {
       stylesheet: {
         options: {
-          prefix: 'Version\\:\\s+'
+          prefix: "Version\\:\\s+",
         },
-        src: 'style.css'
-      },
-      scssStylesheet: {
-        options: {
-          prefix: 'Version\\:\\s+'
-        },
-        src: 'resources/sass/style.scss'
+        src: "style.css",
       },
       functions: {
         options: {
-          prefix: 'AGILITYWP_VERSION\', \''
+          prefix: "AGILITYWP_VERSION', '",
         },
-        src: 'functions.php'
+        src: "functions.php",
+      },
+    },
+    watch: {
+      css: {
+        files: "**/*.scss",
+        tasks: ["sass", "cssmin", "uglify", "version"],
+        options: {
+          spawn: false
+        }
       },
     },
   });
@@ -103,9 +104,11 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks("grunt-contrib-compress");
   grunt.loadNpmTasks("grunt-contrib-clean");
   grunt.loadNpmTasks("grunt-contrib-uglify");
-  grunt.loadNpmTasks('grunt-version');
+  grunt.loadNpmTasks("grunt-version");
   // Watch Task
   grunt.registerTask("default", ["watch"]);
+  // build task
+  grunt.registerTask("build", ["sass", "cssmin", "uglify", "version"]);
   // Release Task
-  grunt.registerTask("build", ["copy", "compress"]);
+  grunt.registerTask("prod", ["sass", "cssmin", "uglify", "version", "copy", "compress"]);
 };
