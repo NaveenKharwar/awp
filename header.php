@@ -26,10 +26,7 @@
 	<header id="masthead" class="site-header">
 		<nav id="site-navigation" class="navbar navbar-expand-lg navbar-light site-navigation py-4" role="navigation">
 			<div class="container">
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'agilitywp' ); ?>">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="site-logo d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+				<div class="site-logo d-flex align-items-center text-dark text-decoration-none">
 					<?php if ( has_custom_logo() ) : ?>
 						<?php
 						$agilitywp_custom_logo_id   = get_theme_mod( 'custom_logo' );
@@ -43,6 +40,9 @@
 						<a class="navbar-brand" title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" href="<?php echo esc_url( home_url() ); ?>"><?php bloginfo( 'name' ); ?></a>
 					<?php endif; ?>
 				</div>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'agilitywp' ); ?>">
+					<span class="navbar-toggler-icon"></span>
+				</button>
 					<?php
 						wp_nav_menu(
 							array(
@@ -62,7 +62,7 @@
 
 		<?php
 
-		if ( get_header_image() ) { 
+		if ( get_header_image() ) {
 			?>
 	<div class="header-image" style="background-image: url(<?php header_image(); ?>);">
 		<div class="container">
