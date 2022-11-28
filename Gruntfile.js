@@ -8,6 +8,7 @@ module.exports = function (grunt) {
         },
         files: {
           "assets/css/theme.css": "resources/sass/theme.scss",
+          "style.css": "resources/sass/style.scss",
           "assets/css/style-editor.css":
             "resources/sass/editor/style-editor.scss",
         },
@@ -46,6 +47,7 @@ module.exports = function (grunt) {
           "!CHANGELOG.md",
           "!style.css.map",
           "!assets/css/**.css.map",
+          "!wpcs",
           // "!theme.css.map",
           // "!style-editor.css.map",
           "!woocommerce.css.map",
@@ -56,14 +58,13 @@ module.exports = function (grunt) {
     compress: {
       build: {
         options: {
-          archive: "build/<%= pkg.name %>.zip",
+          archive: "<%= pkg.name %> - <%= pkg.version %> on <%= grunt.template.today('yyyy-mm-dd HH:mm:ss') %> .zip",
         },
         files: [
           {
             expand: true,
             cwd: "build/",
             src: ["**/*"],
-            dist: "<%= pkg.name %>.zip/",
           },
         ],
       },
@@ -110,5 +111,5 @@ module.exports = function (grunt) {
   // build task
   grunt.registerTask("build", ["sass", "cssmin", "uglify", "version"]);
   // Release Task
-  grunt.registerTask("prod", ["sass", "cssmin", "uglify", "version", "copy", "compress"]);
+  grunt.registerTask("prod", ["sass", "cssmin", "uglify", "version", "copy", "compress", "clean"]);
 };
