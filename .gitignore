@@ -11,3 +11,5 @@ agilitywp.zip
 .DS_Store
 .sass-cache
 assets
+*.zip
+wpcs
