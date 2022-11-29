@@ -43,7 +43,7 @@ add_action( 'after_setup_theme', 'agilitywp_woocommerce_setup' );
  * @return void
  */
 function agilitywp_woocommerce_scripts() {
-	wp_enqueue_style( 'agilitywp-woocommerce-style', get_template_directory_uri() . '/woocommerce.css', array(), agilitywp_VERSION );
+	wp_enqueue_style( 'agilitywp-woocommerce-style', get_template_directory_uri() . '/woocommerce.css', array(), AGILITYWP_VERSION );
 
 	$font_path   = WC()->plugin_url() . '/assets/fonts/';
 	$inline_font = '@font-face {
