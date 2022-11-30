@@ -30,17 +30,10 @@
 // Import variables and mixins.
 @import "abstracts/abstracts";
 
-/*--------------------------------------------------------------
-# Generic
---------------------------------------------------------------*/
-
-/* Normalize
---------------------------------------------- */
-@import "generic/normalize";
 
 /* Bootstrap
 --------------------------------------------- */
-@import "framework/bootstrap";
+@import "framework/framework";
 
 
 /* Box sizing
