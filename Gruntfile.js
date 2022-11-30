@@ -1,32 +1,47 @@
 module.exports = function (grunt) {
   grunt.initConfig({
-    pkg: grunt.file.readJSON("package.json"),
+    pkg: grunt.file.readJSON('package.json'),
     sass: {
-      dist: {
+      dev: {
         options: {
           style: "expanded",
+          loadPath: 'node_modules/bootstrap/scss'
         },
         files: {
-          "assets/css/theme.css": "resources/sass/theme.scss",
-          "style.css": "resources/sass/style.scss",
-          "assets/css/fonts.css": "resources/sass/fonts.scss",
-          "assets/css/style-editor.css":
-            "resources/sass/editor/style-editor.scss",
+          'assets/css/theme.css': 'resources/sass/theme.scss',
+          'style.css': 'resources/sass/style.scss',
+          'assets/css/fonts.css': 'resources/sass/fonts.scss',
+          'assets/css/style-editor.css':
+            'resources/sass/editor/style-editor.scss',
+        },
+      },
+      dist: {
+        options: {
+          style: 'expanded',
+          style: "compressed",
+          loadPath: 'node_modules/bootstrap/scss'
+        },
+        files: {
+          'assets/css/theme.css': 'resources/sass/theme.scss',
+          'style.css': 'resources/sass/style.scss',
+          'assets/css/fonts.css': 'resources/sass/fonts.scss',
+          'assets/css/style-editor.css':
+            'resources/sass/editor/style-editor.scss',
         },
       },
     },
     cssmin: {
       build: {
         expand: true,
-        src: ["assets/css/theme.css", "assets/css/fonts.css"],
-        ext: ".min.css",
+        src: ['assets/css/theme.css', 'assets/css/fonts.css'],
+        ext: '.min.css',
       },
     },
     uglify: {
       my_target: {
         files: {
-          "assets/js/bootstrap.min.js": [
-            "node_modules/bootstrap/dist/js/bootstrap.js",
+          'assets/js/bootstrap.min.js': [
+            'node_modules/bootstrap/dist/js/bootstrap.js',
           ],
         },
       },
@@ -36,34 +51,41 @@ module.exports = function (grunt) {
         expand: true,
         flatten: true,
         src: [
-          "resources/fonts/Catamaran/**",
-          "resources/fonts/Quicksand/**"
+          'resources/fonts/Catamaran/**',
+          'resources/fonts/Quicksand/**',
         ],
-        dest: "assets/fonts/",
+        dest: 'assets/fonts/',
+        filter: 'isFile',
+      },
+      bootstrap: {
+        expand: true,
+        flatten: true,
+        src: "node_modules/bootstrap/scss/bootstrap.scss",
+        dest: "resources/sass/framework/",
         filter: "isFile"
       },
       build: {
         src: [
-          "**",
-          "!node_modules/**",
-          "!vendor/**",
-          "!Gruntfile.js",
-          "!package.json",
-          "!package-lock.json",
-          "!resources/**",
-          "!composer.json",
-          "!composer.lock",
-          "!phpcs.xml.dist",
-          "!README.md",
-          "!CHANGELOG.md",
-          "!style.css.map",
-          "!assets/css/**.css.map",
-          "!wpcs",
+          '**',
+          '!node_modules/**',
+          '!vendor/**',
+          '!Gruntfile.js',
+          '!package.json',
+          '!package-lock.json',
+          '!resources/**',
+          '!composer.json',
+          '!composer.lock',
+          '!phpcs.xml.dist',
+          '!README.md',
+          '!CHANGELOG.md',
+          '!style.css.map',
+          '!assets/css/**.css.map',
+          '!wpcs',
           // "!theme.css.map",
           // "!style-editor.css.map",
-          "!woocommerce.css.map",
+          '!woocommerce.css.map',
         ],
-        dest: "build/",
+        dest: 'build/',
       },
     },
     compress: {
@@ -74,53 +96,53 @@ module.exports = function (grunt) {
         files: [
           {
             expand: true,
-            cwd: "build/",
-            src: ["**/*"],
+            cwd: 'build/',
+            src: ['**/*'],
           },
         ],
       },
     },
     clean: {
       dist: {
-        src: ["build"],
+        src: ['build'],
       },
     },
     version: {
       stylesheet: {
         options: {
-          prefix: "Version\\:\\s+",
+          prefix: 'Version\\:\\s+',
         },
-        src: "style.css",
+        src: 'style.css',
       },
       functions: {
         options: {
           prefix: "AGILITYWP_VERSION', '",
         },
-        src: "functions.php",
+        src: 'functions.php',
       },
     },
     watch: {
       css: {
-        files: "**/*.scss",
-        tasks: ["sass", "cssmin", "uglify", "copy:font", "version"],
+        files: '**/*.scss',
+        tasks: ['sass:dev', 'cssmin', 'uglify', 'copy:font', 'version'],
         options: {
-          spawn: false
-        }
+          spawn: false,
+        },
       },
     },
   });
-  grunt.loadNpmTasks("grunt-contrib-sass");
-  grunt.loadNpmTasks("grunt-contrib-watch");
-  grunt.loadNpmTasks("grunt-contrib-cssmin");
-  grunt.loadNpmTasks("grunt-contrib-copy");
-  grunt.loadNpmTasks("grunt-contrib-compress");
-  grunt.loadNpmTasks("grunt-contrib-clean");
-  grunt.loadNpmTasks("grunt-contrib-uglify");
-  grunt.loadNpmTasks("grunt-version");
+  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-compress');
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-version');
   // Watch Task
-  grunt.registerTask("default", ["watch"]);
+  grunt.registerTask('default', ['watch']);
   // build task
-  grunt.registerTask("build", ["sass", "cssmin", "uglify", "version"]);
+  grunt.registerTask('build', ['sass:dist', 'cssmin', 'uglify', 'version']);
   // Release Task
-  grunt.registerTask("prod", ["sass", "cssmin", "uglify", "version", "copy", "compress", "clean"]);
+  grunt.registerTask('prod', ['sass:dist', 'cssmin', 'uglify', 'version', 'copy', 'compress', 'clean']);
 };
