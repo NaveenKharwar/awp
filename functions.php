@@ -7,19 +7,22 @@
  * @package Agility_WP
  */
 
-if ( ! defined( 'AGILITYWP_VERSION' ) ) {
-	// Replace the version number of the theme on each release.
-	define( 'AGILITYWP_VERSION', '0.0.3' );
+ if (! defined('ABSPATH')) {
+    exit; // Exit if accessed directly.
 }
 
+/* ---------------------------------------------------------------------------------------------
+   DEFINE CONSTANTS
+   --------------------------------------------------------------------------------------------- */
+
+define('AGILITYWP_VERSION', '0.0.3');
+define('AGILITYWP_THEME_DIR', trailingslashit(get_template_directory_uri()) . 'assets/');
+
+/* ---------------------------------------------------------------------------------------------
+   THEME SETUP
+   --------------------------------------------------------------------------------------------- */
+
 if ( ! function_exists( 'AGILITYWP_VERSION' ) ) :
-	/**
-	 * Sets up theme defaults and registers support for various WordPress features.
-	 *
-	 * Note that this function is hooked into the after_setup_theme hook, which
-	 * runs before the init hook. The init hook is too late for some features, such
-	 * as indicating support for post thumbnails.
-	 */
 	function agilitywp_setup() {
 		/*
 		 * Make theme available for translation.
@@ -173,31 +176,39 @@ function agilitywp_widgets_init() {
 }
 add_action( 'widgets_init', 'agilitywp_widgets_init' );
 
-/**
- * Enqueue styles for Editor.
- */
+/* ---------------------------------------------------------------------------------------------
+   ENQUEUE STYLES FOR EDITOR.
+   --------------------------------------------------------------------------------------------- */
+
 function agilitywp_block_editor_styles() {
 	wp_enqueue_style( 'agilitywp-editor-styles', get_theme_file_uri( 'assets/css/style-editor.css' ), false, AGILITYWP_VERSION, 'all' );
 }
 add_action( 'enqueue_block_editor_assets', 'agilitywp_block_editor_styles' );
 
-/**
- * Enqueue scripts and styles.
- */
-function agilitywp_scripts() {
+/* ---------------------------------------------------------------------------------------------
+   ENQUEUE STYLES
+   --------------------------------------------------------------------------------------------- */
+
+function agilitywp_styles() {
 	wp_enqueue_style( 'agilitywp-style', get_stylesheet_uri(), array(), AGILITYWP_VERSION );
 	wp_style_add_data( 'agilitywp-style', 'rtl', 'replace' );
-	wp_enqueue_style( 'agilitywp-theme', get_template_directory_uri() . '/assets/css/theme.min.css', array(), AGILITYWP_VERSION );
-
-	wp_enqueue_style( 'agilitywp-catamaran-font', '//fonts.googleapis.com/css2?family=Catamaran:wght@100;200;300;400;500;600;700;800;900&display=swap', array(), AGILITYWP_VERSION );
-	wp_enqueue_style( 'agilitywp-quicksend-font', '//fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap', array(), AGILITYWP_VERSION );
-
+	wp_enqueue_style( 'agilitywp-theme', AGILITYWP_THEME_DIR . 'css/theme.min.css', array(), AGILITYWP_VERSION );
+	wp_enqueue_style( 'agilitywp-google-fonts', AGILITYWP_THEME_DIR . 'css/fonts.css', array(), AGILITYWP_VERSION );
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
-
-	wp_enqueue_script( 'agilitywp-bootstrap-js', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array(), AGILITYWP_VERSION, true );
 }
+
+add_action( 'wp_enqueue_scripts', 'agilitywp_styles' );
+
+/* ---------------------------------------------------------------------------------------------
+   ENQUEUE SCRIPTS
+   --------------------------------------------------------------------------------------------- */
+
+function agilitywp_scripts() {
+	wp_enqueue_script( 'agilitywp-bootstrap-js', AGILITYWP_THEME_DIR . 'js/bootstrap.min.js', array(), AGILITYWP_VERSION, true );
+}
+
 add_action( 'wp_enqueue_scripts', 'agilitywp_scripts' );
 
 /**

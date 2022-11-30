@@ -9,6 +9,7 @@ module.exports = function (grunt) {
         files: {
           "assets/css/theme.css": "resources/sass/theme.scss",
           "style.css": "resources/sass/style.scss",
+          "assets/css/fonts.css": "resources/sass/fonts.scss",
           "assets/css/style-editor.css":
             "resources/sass/editor/style-editor.scss",
         },
@@ -17,7 +18,7 @@ module.exports = function (grunt) {
     cssmin: {
       build: {
         expand: true,
-        src: ["assets/css/theme.css"],
+        src: ["assets/css/theme.css", "assets/css/fonts.css"],
         ext: ".min.css",
       },
     },
@@ -31,6 +32,16 @@ module.exports = function (grunt) {
       },
     },
     copy: {
+      font: {
+        expand: true,
+        flatten: true,
+        src: [
+          "resources/fonts/Catamaran/**",
+          "resources/fonts/Quicksand/**"
+        ],
+        dest: "assets/fonts/",
+        filter: "isFile"
+      },
       build: {
         src: [
           "**",
@@ -91,7 +102,7 @@ module.exports = function (grunt) {
     watch: {
       css: {
         files: "**/*.scss",
-        tasks: ["sass", "cssmin", "uglify", "version"],
+        tasks: ["sass", "cssmin", "uglify", "copy:font", "version"],
         options: {
           spawn: false
         }
