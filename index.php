@@ -9,7 +9,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package Agility_WP
+ * @package AgilityWP
  */
 
 get_header();

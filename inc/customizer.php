@@ -1,8 +1,8 @@
 <?php
 /**
- * Agility WP Theme Customizer
+ * AgilityWP Theme Customizer
  *
- * @package Agility_WP
+ * @package AgilityWP
  */
 
 /**

@@ -102,7 +102,7 @@ module.exports = function (grunt) {
     },
     clean: {
       dist: {
-        src: ['build'],
+        src: ['build', '**/**.zip'],
       },
     },
     version: {

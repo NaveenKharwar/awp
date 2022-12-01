@@ -4,7 +4,7 @@
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
- * @package Agility_WP
+ * @package AgilityWP
  */
 
 if ( ! function_exists( 'agilitywp_posted_on' ) ) :
