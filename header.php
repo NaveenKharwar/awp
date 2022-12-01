@@ -46,14 +46,14 @@
 					<?php
 						wp_nav_menu(
 							array(
-								'theme_location'    => 'primary',
-								'depth'             => 2,
-								'container'         => 'div',
-								'container_class'   => 'collapse navbar-collapse justify-content-end',
-								'container_id'      => 'navbarToggleExternalContent',
-								'menu_class'        => 'navbar-nav nav nav-pills fw-medium text-capitalize',
-								'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
-								'walker'            => new WP_Bootstrap_Navwalker(),
+								'theme_location'  => 'primary',
+								'depth'           => 2,
+								'container'       => 'div',
+								'container_class' => 'collapse navbar-collapse justify-content-end',
+								'container_id'    => 'navbarToggleExternalContent',
+								'menu_class'      => 'navbar-nav nav nav-pills fw-medium text-capitalize',
+								'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
+								'walker'          => new WP_Bootstrap_Navwalker(),
 							)
 						);
 						?>
