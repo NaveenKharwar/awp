@@ -37,15 +37,6 @@ module.exports = function (grunt) {
         ext: '.min.css',
       },
     },
-    uglify: {
-      my_target: {
-        files: {
-          'assets/js/bootstrap.min.js': [
-            'node_modules/bootstrap/dist/js/bootstrap.js',
-          ],
-        },
-      },
-    },
     copy: {
       font: {
         expand: true,
@@ -55,9 +46,16 @@ module.exports = function (grunt) {
           'resources/fonts/Quicksand/**',
         ],
         dest: 'assets/fonts/',
-        filter: 'isFile',
+        filter: 'isFile'
       },
-      bootstrap: {
+      bootstrap_script: {
+        expand: true,
+        flatten: true,
+        src: "node_modules/bootstrap/dist/js/bootstrap.min.js",
+        dest: "assets/js/",
+        filter: "isFile"
+      },
+      bootstrap_style: {
         expand: true,
         flatten: true,
         src: "node_modules/bootstrap/scss/bootstrap.scss",
@@ -124,7 +122,7 @@ module.exports = function (grunt) {
     watch: {
       css: {
         files: '**/*.scss',
-        tasks: ['sass:dev', 'cssmin', 'uglify', 'copy:font', 'version'],
+        tasks: ['sass:dev', 'cssmin', 'copy', 'version'],
         options: {
           spawn: false,
         },
@@ -142,7 +140,7 @@ module.exports = function (grunt) {
   // Watch Task
   grunt.registerTask('default', ['watch']);
   // build task
-  grunt.registerTask('build', ['sass:dist', 'cssmin', 'uglify', 'version']);
+  grunt.registerTask('build', ['sass:dev', 'cssmin', 'copy', 'version']);
   // Release Task
-  grunt.registerTask('prod', ['sass:dist', 'cssmin', 'uglify', 'version', 'copy', 'compress', 'clean']);
+  grunt.registerTask( 'prod', [ 'sass:dist', 'cssmin',, 'version', 'copy', 'compress', 'clean' ] );
 };
