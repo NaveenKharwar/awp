@@ -34,6 +34,8 @@ function agilitywp_customize_register( $wp_customize ) {
 }
 add_action( 'customize_register', 'agilitywp_customize_register' );
 
+require get_template_directory() . '/inc/customizer/options/page-header.php';
+
 /**
  * Render the site title for the selective refresh partial.
  *

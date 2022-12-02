@@ -142,5 +142,5 @@ module.exports = function (grunt) {
   // build task
   grunt.registerTask('build', ['sass:dev', 'cssmin', 'copy', 'version']);
   // Release Task
-  grunt.registerTask( 'prod', [ 'sass:dist', 'cssmin',, 'version', 'copy', 'compress', 'clean' ] );
+  grunt.registerTask( 'prod', [ 'sass:dist', 'cssmin',, 'version', 'copy', 'compress', ] );
 };
