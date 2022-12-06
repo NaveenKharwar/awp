@@ -11,34 +11,37 @@
  */
 
 /**
- * Add custom section and setting to the Admin Customizer
- * */
+ * agilitywp_page_header_customize_register
+ *
+ * @param  mixed $wp_customize
+ * @return void
+ */
 function agilitywp_page_header_customize_register( $wp_customize ) {
-	$main_section_id = 'sec_page_header';
-	$main_setting_id = 'set_page_header';
 
 	$wp_customize->add_section(
-		$main_section_id,
+		'sec_page_header',
 		array(
-			'title'       => esc_html__( 'Page Header Section', 'agilitywp' ),
-			'description' => esc_html__( 'Check this to enable the header', 'agilitywp' ),
+			'title'       => __( 'Page Header Section', 'agilitywp' ),
+			'description' => __( 'Check this to enable the header', 'agilitywp' ),
+			'panel'       => 'pan_theme_options'
 		)
 	);
 
 	$wp_customize->add_setting(
-		$main_setting_id,
+		'set_page_header',
 		array(
 			'type'              => 'theme_mod',
 			'default'           => '',
-			'sanitize_callback' => 'sanitize_text_field',
+			'sanitize_callback' => 'agilitywp_sanitize_checkbox',
 		)
 	);
 
 	$wp_customize->add_control(
-		$main_setting_id,
+		'set_page_header',
 		array(
-			'title'       => esc_html__( 'Page Header', 'agilitywp' ),
-			'section'     => $main_section_id,
+			'label'       => __( 'Enable Page Header', 'agilitywp' ),
+			'section'     => 'sec_page_header',
+			'settings'     => 'set_page_header',
 			'type'        => 'checkbox',
 		)
 	);
