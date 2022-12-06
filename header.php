@@ -60,10 +60,8 @@
 			</div>
 		</nav>
 
-		<?php
-
-		if ( get_header_image() ) {
-			?>
+		<?php if ( '1' == get_theme_mod( 'set_page_header' ) ) { ?>
+		<?php if ( get_header_image() ) { ?>
 	<div class="header-image" style="background-image: url(<?php header_image(); ?>);">
 		<div class="container">
 			<div class="row">
@@ -84,7 +82,7 @@
 				</div>
 			</div>
 		</div>
-		</div>.
+		</div>
 		<?php } ?>
-
+		<?php } ?>
 	</header><!-- #masthead -->
