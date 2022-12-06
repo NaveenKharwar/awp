@@ -160,6 +160,14 @@ function agilitywp_scripts() {
 add_action( 'wp_enqueue_scripts', 'agilitywp_scripts' );
 
 /* ---------------------------------------------------------------------------------------------
+   BINDS JS HANDLERS TO MAKE THEME CUSTOMIZER PREVIEW RELOAD CHANGES ASYNCHRONOUSLY.
+   --------------------------------------------------------------------------------------------- */
+function agilitywp_customize_preview_js() {
+	wp_enqueue_script( 'agilitywp-customizer', AGILITYWP_THEME_DIR . 'js/customizer.min.js', array( 'customize-preview' ), AGILITYWP_VERSION, true );
+}
+add_action( 'customize_preview_init', 'agilitywp_customize_preview_js' );
+
+/* ---------------------------------------------------------------------------------------------
    LOAD JETPACK COMPATIBILITY FILE.
    --------------------------------------------------------------------------------------------- */
 if ( defined( 'JETPACK__VERSION' ) ) {
@@ -173,6 +181,9 @@ if ( class_exists( 'WooCommerce' ) ) {
 	require THEME_DIR . '/inc/woocommerce.php';
 }
 
+/* ---------------------------------------------------------------------------------------------
+   BOOTSTRAP NAVWALKER CLASS
+   --------------------------------------------------------------------------------------------- */
 if ( ! file_exists( THEME_DIR . '/inc/class-wp-bootstrap-navwalker.php' ) ) {
 	return new WP_Error( 'class-wp-bootstrap-navwalker-missing', __( 'It appears the class-wp-bootstrap-navwalker.php file may be missing.', 'agilitywp' ) );
 } else {
@@ -198,7 +209,12 @@ add_filter( 'excerpt_more', 'agilitywp_excerpt_more' );
 /* ---------------------------------------------------------------------------------------------
    REQUIRED FILES
    --------------------------------------------------------------------------------------------- */
+require THEME_DIR . '/inc/customizer/helpers.php';
 require THEME_DIR . '/inc/template-tags.php';
 require THEME_DIR . '/inc/template-functions.php';
 require THEME_DIR . '/inc/customizer.php';
+require THEME_DIR . '/inc/custom-header.php';
+require THEME_DIR . '/inc/customizer/panel/theme-panel.php';
 require THEME_DIR . '/inc/customizer/options/page-header.php';
+require THEME_DIR . '/inc/customizer/options/header-color.php';
+require THEME_DIR . '/inc/customizer/sections/global-colors.php';
