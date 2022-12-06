@@ -1,69 +1,52 @@
 <?php
 /**
- * Agility WP functions and definitions
+ * AgilityWP functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package Agility_WP
+ * @package AgilityWP
  */
 
- if (! defined('ABSPATH')) {
+if (! defined('ABSPATH')) {
     exit; // Exit if accessed directly.
 }
 
 /* ---------------------------------------------------------------------------------------------
    DEFINE CONSTANTS
    --------------------------------------------------------------------------------------------- */
-
 define('AGILITYWP_VERSION', '0.0.3');
 define('AGILITYWP_THEME_DIR', trailingslashit(get_template_directory_uri()) . 'assets/');
+define('THEME_DIR', get_template_directory());
 
 /* ---------------------------------------------------------------------------------------------
    THEME SETUP
    --------------------------------------------------------------------------------------------- */
-
 if ( ! function_exists( 'AGILITYWP_VERSION' ) ) :
 	function agilitywp_setup() {
-		/*
-		 * Make theme available for translation.
-		 * Translations can be filed in the /languages/ directory.
-		 * If you're building a theme based on Agility WP, use a find and replace
-		 * to change 'agilitywp' to the name of your theme in all the template files.
-		 */
-		load_theme_textdomain( 'agilitywp', get_template_directory() . '/languages' );
+		// Make theme available for translation.
+		load_theme_textdomain( 'agilitywp', THEME_DIR . '/languages' );
 
-		// Add default posts and comments RSS feed links to head.
+		// Add theme support for various features.
 		add_theme_support( 'automatic-feed-links' );
-
-		/*
-		 * Let WordPress manage the document title.
-		 * By adding theme support, we declare that this theme does not use a
-		 * hard-coded <title> tag in the document head, and expect WordPress to
-		 * provide it for us.
-		 */
 		add_theme_support( 'title-tag' );
-
-		/*
-		 * Enable support for Post Thumbnails on posts and pages.
-		 *
-		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-		 */
 		add_theme_support( 'post-thumbnails' );
-
-		// This theme uses wp_nav_menu() in one location.
-		register_nav_menus(
-			array(
-				'primary' => esc_html__( 'Primary', 'agilitywp' ),
-			)
+		add_theme_support( 'customize-selective-refresh-widgets' );
+		add_theme_support( 'editor-styles' );
+		add_theme_support( 'wp-block-styles' );
+		add_theme_support( 'align-wide' );
+		add_theme_support( 'responsive-embeds' );
+		add_theme_support(
+			'custom-logo',
+			[
+				'height'      => 250,
+				'width'       => 250,
+				'flex-width'  => true,
+				'flex-height' => true,
+			]
 		);
-
-		/*
-		 * Switch default core markup for search form, comment form, and comments
-		 * to output valid HTML5.
-		 */
 		add_theme_support(
 			'html5',
-			array(
+			[
 				'search-form',
 				'comment-form',
 				'comment-list',
@@ -71,10 +54,8 @@ if ( ! function_exists( 'AGILITYWP_VERSION' ) ) :
 				'caption',
 				'style',
 				'script',
-			)
+			]
 		);
-
-		// Set up the WordPress core custom background feature.
 		add_theme_support(
 			'custom-background',
 			apply_filters(
@@ -85,34 +66,9 @@ if ( ! function_exists( 'AGILITYWP_VERSION' ) ) :
 				)
 			)
 		);
-
-		// Add theme support for selective refresh for widgets.
-		add_theme_support( 'customize-selective-refresh-widgets' );
-
-		// Add Theme Support for Editor Style.
-		add_theme_support( 'editor-styles' );
-
-		// Add Theme Support for Block Styles.
-		add_theme_support( 'wp-block-styles' );
-
-		// Add Theme Support for Wide and FFull alignment.
-		add_theme_support( 'align-wide' );
-
-		// Add Support for responsive embed.
-		add_theme_support( 'responsive-embeds' );
-
-		/**
-		 * Add support for core custom logo.
-		 *
-		 * @link https://codex.wordpress.org/Theme_Logo
-		 */
-		add_theme_support(
-			'custom-logo',
+		register_nav_menus(
 			array(
-				'height'      => 250,
-				'width'       => 250,
-				'flex-width'  => true,
-				'flex-height' => true,
+				'primary' => esc_html__( 'Primary', 'agilitywp' ),
 			)
 		);
 	}
@@ -127,9 +83,6 @@ add_action( 'after_setup_theme', 'agilitywp_setup' );
  * @global int $content_width
  */
 function agilitywp_content_width() {
-	// This variable is intended to be overruled from themes.
-	// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
-	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 	$GLOBALS['content_width'] = apply_filters( 'agilitywp_content_width', 640 );
 }
 add_action( 'after_setup_theme', 'agilitywp_content_width', 0 );
@@ -179,7 +132,6 @@ add_action( 'widgets_init', 'agilitywp_widgets_init' );
 /* ---------------------------------------------------------------------------------------------
    ENQUEUE STYLES FOR EDITOR.
    --------------------------------------------------------------------------------------------- */
-
 function agilitywp_block_editor_styles() {
 	wp_enqueue_style( 'agilitywp-editor-styles', get_theme_file_uri( 'assets/css/style-editor.css' ), false, AGILITYWP_VERSION, 'all' );
 }
@@ -188,7 +140,6 @@ add_action( 'enqueue_block_editor_assets', 'agilitywp_block_editor_styles' );
 /* ---------------------------------------------------------------------------------------------
    ENQUEUE STYLES
    --------------------------------------------------------------------------------------------- */
-
 function agilitywp_styles() {
 	wp_enqueue_style( 'agilitywp-style', get_stylesheet_uri(), array(), AGILITYWP_VERSION );
 	wp_style_add_data( 'agilitywp-style', 'rtl', 'replace' );
@@ -198,57 +149,45 @@ function agilitywp_styles() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-
 add_action( 'wp_enqueue_scripts', 'agilitywp_styles' );
 
 /* ---------------------------------------------------------------------------------------------
    ENQUEUE SCRIPTS
    --------------------------------------------------------------------------------------------- */
-
 function agilitywp_scripts() {
 	wp_enqueue_script( 'agilitywp-bootstrap-js', AGILITYWP_THEME_DIR . 'js/bootstrap.min.js', array(), AGILITYWP_VERSION, true );
 }
-
 add_action( 'wp_enqueue_scripts', 'agilitywp_scripts' );
 
-/**
- * Custom Header for this theme.
- */
-require get_template_directory() . '/inc/custom-header.php';
+/* ---------------------------------------------------------------------------------------------
+   BINDS JS HANDLERS TO MAKE THEME CUSTOMIZER PREVIEW RELOAD CHANGES ASYNCHRONOUSLY.
+   --------------------------------------------------------------------------------------------- */
+function agilitywp_customize_preview_js() {
+	wp_enqueue_script( 'agilitywp-customizer', AGILITYWP_THEME_DIR . 'js/customizer.min.js', array( 'customize-preview' ), AGILITYWP_VERSION, true );
+}
+add_action( 'customize_preview_init', 'agilitywp_customize_preview_js' );
 
-/**
- * Custom template tags for this theme.
- */
-require get_template_directory() . '/inc/template-tags.php';
-
-/**
- * Functions which enhance the theme by hooking into WordPress.
- */
-require get_template_directory() . '/inc/template-functions.php';
-
-/**
- * Customizer additions.
- */
-require get_template_directory() . '/inc/customizer.php';
-
-/**
- * Load Jetpack compatibility file.
- */
+/* ---------------------------------------------------------------------------------------------
+   LOAD JETPACK COMPATIBILITY FILE.
+   --------------------------------------------------------------------------------------------- */
 if ( defined( 'JETPACK__VERSION' ) ) {
-	require get_template_directory() . '/inc/jetpack.php';
+	require THEME_DIR . '/inc/jetpack.php';
 }
 
-/**
- * Load WooCommerce compatibility file.
- */
+/* ---------------------------------------------------------------------------------------------
+   LOAD WOOCOMMERCE COMPATIBILITY FILE..
+   --------------------------------------------------------------------------------------------- */
 if ( class_exists( 'WooCommerce' ) ) {
-	require get_template_directory() . '/inc/woocommerce.php';
+	require THEME_DIR . '/inc/woocommerce.php';
 }
 
-if ( ! file_exists( get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php' ) ) {
+/* ---------------------------------------------------------------------------------------------
+   BOOTSTRAP NAVWALKER CLASS
+   --------------------------------------------------------------------------------------------- */
+if ( ! file_exists( THEME_DIR . '/inc/class-wp-bootstrap-navwalker.php' ) ) {
 	return new WP_Error( 'class-wp-bootstrap-navwalker-missing', __( 'It appears the class-wp-bootstrap-navwalker.php file may be missing.', 'agilitywp' ) );
 } else {
-	require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
+	require_once THEME_DIR . '/inc/class-wp-bootstrap-navwalker.php';
 }
 
 /**
@@ -266,3 +205,16 @@ function agilitywp_excerpt_more( $more ) {
 	);
 }
 add_filter( 'excerpt_more', 'agilitywp_excerpt_more' );
+
+/* ---------------------------------------------------------------------------------------------
+   REQUIRED FILES
+   --------------------------------------------------------------------------------------------- */
+require THEME_DIR . '/inc/customizer/helpers.php';
+require THEME_DIR . '/inc/template-tags.php';
+require THEME_DIR . '/inc/template-functions.php';
+require THEME_DIR . '/inc/customizer.php';
+require THEME_DIR . '/inc/custom-header.php';
+require THEME_DIR . '/inc/customizer/panel/theme-panel.php';
+require THEME_DIR . '/inc/customizer/options/page-header.php';
+require THEME_DIR . '/inc/customizer/options/header-color.php';
+require THEME_DIR . '/inc/customizer/sections/global-colors.php';

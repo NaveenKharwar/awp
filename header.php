@@ -6,7 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package Agility_WP
+ * @package AgilityWP
  */
 
 ?>
@@ -46,24 +46,22 @@
 					<?php
 						wp_nav_menu(
 							array(
-								'theme_location'    => 'primary',
-								'depth'             => 2,
-								'container'         => 'div',
-								'container_class'   => 'collapse navbar-collapse justify-content-end',
-								'container_id'      => 'navbarToggleExternalContent',
-								'menu_class'        => 'navbar-nav nav nav-pills fw-medium text-capitalize',
-								'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
-								'walker'            => new WP_Bootstrap_Navwalker(),
+								'theme_location'  => 'primary',
+								'depth'           => 2,
+								'container'       => 'div',
+								'container_class' => 'collapse navbar-collapse justify-content-end',
+								'container_id'    => 'navbarToggleExternalContent',
+								'menu_class'      => 'navbar-nav nav nav-pills fw-medium text-capitalize',
+								'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
+								'walker'          => new WP_Bootstrap_Navwalker(),
 							)
 						);
 						?>
 			</div>
 		</nav>
 
-		<?php
-
-		if ( get_header_image() ) {
-			?>
+		<?php if ( '1' == get_theme_mod( 'set_page_header' ) ) { ?>
+		<?php if ( get_header_image() ) { ?>
 	<div class="header-image" style="background-image: url(<?php header_image(); ?>);">
 		<div class="container">
 			<div class="row">
@@ -84,7 +82,7 @@
 				</div>
 			</div>
 		</div>
-		</div>.
+		</div>
 		<?php } ?>
-
+		<?php } ?>
 	</header><!-- #masthead -->

@@ -1,7 +1,7 @@
 {
     "name": "lucenthemes/agilitywp",
     "type": "wordpress-theme",
-    "description": "Agility WP Theme is a blazing fast theme for Bloggers, Business, WooCommerce, and Portfolio, etc. Build on the top of Bootstrap 5 with some amazing customization options best suited for any business.",
+    "description": "AgilityWP Theme is a blazing fast theme for Bloggers, Business, WooCommerce, and Portfolio, etc. Build on the top of Bootstrap 5 with some amazing customization options best suited for any business.",
     "keywords": [
         "WordPress",
         "Themes"
@@ -19,7 +19,7 @@
     },
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7.2",
-        "phpcompatibility/phpcompatibility-wp": "^2.1",
+        "phpcompatibility/phpcompatibility-wp": "*",
         "squizlabs/php_codesniffer": "^3.7",
         "wp-coding-standards/wpcs": "^2.3",
         "php-parallel-lint/php-parallel-lint": "^1.2.0",

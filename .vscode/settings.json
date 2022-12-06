@@ -1,0 +1,26 @@
+{
+    "workbench.colorTheme": "Cobalt2",
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.fontFamily": "Operator Mono, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontSize": 14,
+    "editor.lineHeight": 25,
+    "editor.letterSpacing": 0.5,
+    "files.trimTrailingWhitespace": true,
+    "editor.fontWeight": "300",
+    "prettier.eslintIntegration": true,
+    "editor.cursorStyle": "line",
+    "editor.cursorWidth": 5,
+    "editor.cursorBlinking": "solid",
+    "editor.renderWhitespace": "all",
+    "workbench.layoutControl.enabled": false,
+    "window.menuBarVisibility": "compact",
+    "workbench.statusBar.visible": false,
+    "editor.minimap.enabled": false,
+    "breadcrumbs.enabled": false,
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "phpcs.enable": true,
+    "phpcs.executablePath": "vendor/bin/phpcs",
+    "phpcs.standard": "WordPress"
+}

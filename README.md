@@ -19,13 +19,13 @@
   <a href="https://www.lucenthemes.com/agilitywp">Official Website</a> | <a href="https://www.lucenthemes.com/docs/agilitywp/">Documentation</a> | <a href="CHANGELOG.md">Change Log</a>
 </p>
 
-## ✨ About Agility WP
+## ✨ About AgilityWP
 
-**Agility WP** is a WordPress Theme that is designed for real case scenarios. Agility is following some world-class UI and UX Rules to best fit for Bloggers, E-Commerce, Marketing, Portfolio websites.
+**AgilityWP** is a WordPress Theme that is designed for real case scenarios. Agility is following some world-class UI and UX Rules to best fit for Bloggers, E-Commerce, Marketing, Portfolio websites.
 
 Its a is highly customizable and SEO Friendly and is tested for Good SEO and Performance. We focus more to make this Theme Lightweight, SEO Friendly and blazing fast. The theme is having a clean UI that attracts many of its users.
 
-We did a good job of making Agility WP Responsive, Cross-Browser Support, WooCommerce Ready, Gutenberg, Eleementor, DIVI, Beaver Ready, Always UP TO DATE concerning current WordPress Version.
+We did a good job of making AgilityWP Responsive, Cross-Browser Support, WooCommerce Ready, Gutenberg, Eleementor, DIVI, Beaver Ready, Always UP TO DATE concerning current WordPress Version.
 
 Looking for an amazing WordPress Theme for your new website which has 24x7 Support and continuous improvement?
 Welcome to LucenWorld.
@@ -44,17 +44,17 @@ Make sure all dependencies have been installed before moving on:
 **From within WordPress**
 
 1. Visit "Appearance > Themes > Add New"
-2. Search for "Agility WP"
+2. Search for "AgilityWP"
 3. Install and activate
 
 **Using FTP**
 
-1. Download [Agility WP](https://www.wordpress.org/themes/agilitywp)
+1. Download [AgilityWP](https://www.wordpress.org/themes/agilitywp)
 2. Using an FTP client to access your host web server and navigate to /wp-content/themes/ directory.
 3. Upload the Theme folder (agilitywp.zip) to this directory on your host server.
 4. Login to WordPress Dashboard.
 5. Select the Appearance screen, then Themes.
-6. Look for Agility WP and Activate it.
+6. Look for AgilityWP and Activate it.
 
 ### ⚙️ Theme development
 
@@ -80,7 +80,7 @@ npm install # To install all package
 | :------------: | :------------: |
 |  [<img alt="naveenkharwar" src="https://avatars.githubusercontent.com/u/37496983?v=4" width="200">](https://twitter.com/naveenkharwar21) | [<img alt="LucenThemes" src="https://user-images.githubusercontent.com/37496983/88413968-c0000900-cdf9-11ea-8d93-017b54823510.png" width="200">](https://www.lucenthemes.com/)  |
 
-### 🤝 Agility WP sponsors
+### 🤝 AgilityWP sponsors
 
 Help support our open-source development efforts by ~~[becoming a sponsor]~~(https://github.com/sponsors/agilitywp).
 

@@ -45,6 +45,7 @@
 	#############################################################################
 	-->
 
+	<config name="installed_paths" value="vendor/wp-coding-standards/wpcs" />
 	<rule ref="WordPress">
 		<!-- This rule does not apply here since the _s prefix should be changed by the theme author. -->
 		<exclude name="WordPress.NamingConventions.PrefixAllGlobals.ShortPrefixPassed"/>

@@ -1,8 +1,8 @@
 <?php
 /**
- * Agility WP Theme Customizer
+ * AgilityWP Theme Customizer
  *
- * @package Agility_WP
+ * @package AgilityWP
  */
 
 /**
@@ -13,7 +13,15 @@
 function agilitywp_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
-	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
+	$wp_customize->get_control( 'background_color'  )->section   = 'sec_global_colors';
+	$wp_customize->get_section('background_image')->panel = 'pan_theme_options';
+	$wp_customize->get_section('header_image')->panel = 'pan_theme_options';
+	$wp_customize->get_section('header_image')->title = esc_html__( 'Default Header Image', 'agilitywp' );
+	$wp_customize->get_section('background_image')->priority  = 11;
+	$wp_customize->get_section( 'custom_css')->title = esc_html__( 'Custom Style', 'agilitywp' );
+	$wp_customize->get_panel( 'nav_menus')->title = esc_html__( 'Navigation Menu', 'agilitywp' );
+	$wp_customize->get_section( 'static_front_page' )->priority  = 12;
+	$wp_customize->get_panel( 'nav_menus' )->priority  = 11;
 
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial(
@@ -32,7 +40,7 @@ function agilitywp_customize_register( $wp_customize ) {
 		);
 	}
 }
-add_action( 'customize_register', 'agilitywp_customize_register' );
+add_action( 'customize_register', 'agilitywp_customize_register', 50);
 
 /**
  * Render the site title for the selective refresh partial.
@@ -51,11 +59,3 @@ function agilitywp_customize_partial_blogname() {
 function agilitywp_customize_partial_blogdescription() {
 	bloginfo( 'description' );
 }
-
-/**
- * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
- */
-function agilitywp_customize_preview_js() {
-	wp_enqueue_script( 'agilitywp-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
-}
-add_action( 'customize_preview_init', 'agilitywp_customize_preview_js' );
