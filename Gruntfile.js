@@ -101,7 +101,7 @@ const gruntConfig = function( grunt ) {
 		compress: {
 			build: {
 				options: {
-					archive: "<%= pkg.name %> - <%= pkg.version %> on <%= grunt.template.today('yyyy-mm-dd HH:mm:ss') %> .zip",
+					archive: '<%= pkg.name %>-<%= pkg.version %>.zip',
 				},
 				files: [
 					{
