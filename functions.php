@@ -144,6 +144,7 @@ function agilitywp_styles() {
 	wp_enqueue_style( 'agilitywp-style', get_stylesheet_uri(), array(), AGILITYWP_VERSION );
 	wp_style_add_data( 'agilitywp-style', 'rtl', 'replace' );
 	wp_enqueue_style( 'agilitywp-theme', AGILITYWP_THEME_DIR . 'css/theme.min.css', array(), AGILITYWP_VERSION );
+	wp_enqueue_style( 'agilitywp-theme-boxicons', AGILITYWP_THEME_DIR . 'boxicons/css/boxicons.min.css', array(), AGILITYWP_VERSION );
 	wp_enqueue_style( 'agilitywp-google-fonts', AGILITYWP_THEME_DIR . 'css/fonts.css', array(), AGILITYWP_VERSION );
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -155,7 +156,7 @@ add_action( 'wp_enqueue_scripts', 'agilitywp_styles' );
    ENQUEUE SCRIPTS
    --------------------------------------------------------------------------------------------- */
 function agilitywp_scripts() {
-	wp_enqueue_script( 'agilitywp-bootstrap-js', AGILITYWP_THEME_DIR . 'js/bootstrap.min.js', array(), AGILITYWP_VERSION, true );
+	wp_enqueue_script( 'agilitywp--script', AGILITYWP_THEME_DIR . 'js/script.min.js', array(), AGILITYWP_VERSION, true );
 }
 add_action( 'wp_enqueue_scripts', 'agilitywp_scripts' );
 
@@ -179,15 +180,6 @@ if ( defined( 'JETPACK__VERSION' ) ) {
    --------------------------------------------------------------------------------------------- */
 if ( class_exists( 'WooCommerce' ) ) {
 	require THEME_DIR . '/inc/woocommerce.php';
-}
-
-/* ---------------------------------------------------------------------------------------------
-   BOOTSTRAP NAVWALKER CLASS
-   --------------------------------------------------------------------------------------------- */
-if ( ! file_exists( THEME_DIR . '/inc/class-wp-bootstrap-navwalker.php' ) ) {
-	return new WP_Error( 'class-wp-bootstrap-navwalker-missing', __( 'It appears the class-wp-bootstrap-navwalker.php file may be missing.', 'agilitywp' ) );
-} else {
-	require_once THEME_DIR . '/inc/class-wp-bootstrap-navwalker.php';
 }
 
 /**

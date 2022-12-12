@@ -4,6 +4,7 @@ const gruntConfig = function( grunt ) {
 		sass: {
 			dev: {
 				options: {
+					sourcemap: 'none',
 					style: 'expanded',
 					loadPath: 'node_modules/bootstrap/scss',
 				},
@@ -47,19 +48,23 @@ const gruntConfig = function( grunt ) {
 				dest: 'assets/fonts/',
 				filter: 'isFile',
 			},
-			bootstrap_script: {
-				expand: true,
-				flatten: true,
-				src: 'node_modules/bootstrap/dist/js/bootstrap.min.js',
-				dest: 'assets/js/',
-				filter: 'isFile',
-			},
 			bootstrap_style: {
 				expand: true,
 				flatten: true,
 				src: 'node_modules/bootstrap/scss/bootstrap.scss',
 				dest: 'resources/sass/framework/',
 				filter: 'isFile',
+			},
+			boxicons: {
+				expand: true,
+				// flatten: true,
+				cwd: 'node_modules/boxicons/',
+				src: [
+					'**/css/*',
+					'**/fonts/*',
+				],
+				dest: 'assets/boxicons/',
+				// filter: 'isFile',
 			},
 			build: {
 				src: [
@@ -89,6 +94,7 @@ const gruntConfig = function( grunt ) {
 			theme_js: {
 				files: {
 					'assets/js/customizer.min.js': [ 'resources/js/customizer.js' ],
+					'assets/js/script.min.js': 'resources/js/script.js',
 				},
 			},
 		},
@@ -128,7 +134,8 @@ const gruntConfig = function( grunt ) {
 		watch: {
 			css: {
 				files: '**/*.scss',
-				tasks: [ 'sass:dev', 'cssmin', 'uglify', 'copy', 'version' ],
+				// tasks: [ 'sass:dev', 'cssmin', 'uglify', 'copy', 'version' ],
+				tasks: [ 'sass:dev' ],
 				options: {
 					spawn: false,
 				},
@@ -146,7 +153,7 @@ const gruntConfig = function( grunt ) {
 	// Watch Task
 	grunt.registerTask( 'default', [ 'watch' ] );
 	// build task
-	grunt.registerTask( 'build', [ 'sass:dev', 'cssmin', 'uglify', 'copy', 'version' ] );
+	grunt.registerTask( 'build', [ 'sass:dist', 'cssmin', 'uglify', 'copy', 'version' ] );
 	// Release Task
 	grunt.registerTask( 'prod', [ 'sass:dist', 'cssmin', 'uglify', 'version', 'copy', 'compress' ] );
 };

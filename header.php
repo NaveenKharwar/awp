@@ -24,42 +24,55 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'agilitywp' ); ?></a>
 	<header id="masthead" class="site-header">
-		<nav id="site-navigation" class="navbar navbar-expand-lg navbar-light site-navigation py-4" role="navigation">
+		<nav id="site-navigation" class="site-navigation" role="navigation">
 			<div class="container">
-				<div class="site-logo d-flex align-items-center text-dark text-decoration-none">
-					<?php if ( has_custom_logo() ) : ?>
-						<?php
-						$agilitywp_custom_logo_id   = get_theme_mod( 'custom_logo' );
-						$agilitywp_custom_logo_data = wp_get_attachment_image_src( $agilitywp_custom_logo_id, 'full' );
-						$agilitywp_custom_logo_url  = $agilitywp_custom_logo_data[0];
-						?>
-						<a href="<?php echo esc_url( home_url( '/', 'https' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" rel="home">
-							<img src="<?php echo esc_url( $agilitywp_custom_logo_url ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>"/>
-						</a>
-					<?php else : ?>
-						<a class="navbar-brand" title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" href="<?php echo esc_url( home_url() ); ?>"><?php bloginfo( 'name' ); ?></a>
-					<?php endif; ?>
+			<div class="site-branding-wrapper">
+				<div class="site-logo">
+				<?php
+					$agilitywp_custom_logo_id   = get_theme_mod( 'custom_logo' );
+					$agilitywp_custom_logo_data = wp_get_attachment_image_src( $agilitywp_custom_logo_id, 'full' );
+					$agilitywp_custom_logo_url  = $agilitywp_custom_logo_data[0];
+				?>
+				<a href="<?php echo esc_url( home_url( '/', 'https' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" rel="home">
+					<img src="<?php echo esc_url( $agilitywp_custom_logo_url ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>"/>
+				</a>
 				</div>
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'agilitywp' ); ?>">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-					<?php
-						wp_nav_menu(
-							array(
-								'theme_location'  => 'primary',
-								'depth'           => 2,
-								'container'       => 'div',
-								'container_class' => 'collapse navbar-collapse justify-content-end',
-								'container_id'    => 'navbarToggleExternalContent',
-								'menu_class'      => 'navbar-nav nav nav-pills fw-medium text-capitalize',
-								'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
-								'walker'          => new WP_Bootstrap_Navwalker(),
-							)
-						);
-						?>
+				<div class="site-info" style="display: none;">
+					<p class="site-title">
+						<a href="#" rel="home">AgilityWP</a>
+					</p>
+					<p class="site-description">This is a site WordPress</p>
+				</div>
+			</div>
+			<button class="agility_hamburger" type="button" role="button" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'agilitywp' ); ?>">
+				<div class="hamburger-toggle">
+					<span class="burger_line-one"></span>
+					<span class="burger_line-two"></span>
+					<span class="burger_line-three"></span>
+				</div>
+			</button>
+			<?php
+				wp_nav_menu(
+					array(
+						'theme_location'  => 'primary',
+						'depth'           => 2,
+						'menu_id'         => 'agilitywp_nav_menu',
+					)
+				);
+			?>
+			</div>
+			<div class="container mobile-navigation">
+			<?php
+				wp_nav_menu(
+					array(
+						'theme_location'  => 'primary',
+						'depth'           => 2,
+						'menu_id'         => 'mobile_agilitywp_nav_menu',
+					)
+				);
+			?>
 			</div>
 		</nav>
-
 		<?php if ( '1' == get_theme_mod( 'set_page_header' ) ) { ?>
 		<?php if ( get_header_image() ) { ?>
 	<div class="header-image" style="background-image: url(<?php header_image(); ?>);">

@@ -1,24 +1,3 @@
-.site-logo {
-  img {
-    max-width: 185px;
-  }
-}
-/* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-  display: block;
-}
-
-@media screen and (min-width: 37.5em) {
-  .menu-toggle {
-    display: none;
-  }
-
-  .main-navigation ul {
-    display: flex;
-  }
-}
-
 .comment-navigation,
 .posts-navigation,
 .post-navigation {
@@ -35,6 +14,7 @@
   .nav-next {
     text-align: end;
   }
+
   .nav-next,
   .nav-previous {
     height: 100%;
@@ -42,20 +22,352 @@
     -webkit-transition: all 0.5s;
     -o-transition: all 0.5s;
     transition: all 0.5s;
+
     a {
       display: flex;
       flex-direction: column;
+
       .nav-subtitle {
         color: $black;
-        font-size: 0.8rem;;
+        font-size: 0.8rem;
       }
+
       .nav-title {
         font-weight: $font-weight-bold;
       }
     }
+
     :first-child {
       font-weight: $font-weight-bold;
       text-transform: uppercase;
+    }
+  }
+}
+
+// Header Navigation
+.site-navigation {
+  font-family: $accent-font;
+  background-color: $white;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .site-branding-wrapper {
+    .site-info {
+      display: flex;
+      margin: 15px auto;
+
+      .site-title {
+        font-size: 0.999rem;
+        font-weight: 700;
+      }
+
+      .site-description {
+        font-size: 0.99rem;
+        border-left: 2px solid #e7e7e7;
+        padding-left: 10px;
+        margin-left: 10px;
+        display: inline-block;
+      }
+
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  #mobile_agilitywp_nav_menu {
+    display: none;
+  }
+
+  .mobile-navigation {
+    a {}
+  }
+
+  #agilitywp_nav_menu {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+
+    a {
+      @include navigation-link;
+      padding: 15px 17px;
+    }
+
+    li.menu-item {
+      position: relative;
+      transition: all 0.3s ease;
+
+      a {
+        border-top: 3px solid transparent;
+        padding: 45px 13px 35px;
+
+        &:hover {
+          border-color: $primary;
+        }
+      }
+    }
+  }
+
+  #agilitywp_nav_menu {
+    .menu-item-has-children {
+      a {
+        display: flex;
+        align-items: center;
+
+        &::after {
+          @include sub-menu_icon;
+        }
+      }
+
+      .sub-menu {
+        padding: 15px 0;
+        background-color: $white;
+        transition: all 0.3s ease;
+        pointer-events: none;
+        list-style: none;
+        width: 240px;
+        float: left;
+        position: absolute;
+        top: 60%;
+        z-index: 99999;
+        left: 0.5em;
+        opacity: 0;
+        visibility: hidden;
+
+        a {
+          @include sub-menu-link;
+
+          &:hover {
+            border: none;
+            color: $primary;
+          }
+
+          &::after {
+            content: none;
+          }
+        }
+
+        li.menu-item {
+          a {
+            border: 0;
+          }
+        }
+      }
+    }
+
+    .menu-item-has-children {
+      &:hover {
+        .sub-menu {
+          @include sub-menu;
+        }
+      }
+    }
+  }
+
+  .agility_hamburger {
+    display: none;
+    padding: 0;
+    background-color: transparent;
+    color: $black;
+
+    .bx.bx-grid-small {
+      font-size: 5rem;
+      transition: all 0.3s ease;
+    }
+
+    &:hover {
+      color: $light-gray;
+
+      .bx.bx-grid-small {
+        transform: rotate(45deg);
+      }
+    }
+  }
+}
+
+.mobile-navigation {
+  margin: 0 auto;
+  background-color: $white;
+  position: absolute;
+  display: block;
+  clear: both;
+  left: 0;
+  right: 0;
+  max-height: 0;
+  overflow: hidden;
+  z-index: 10;
+  opacity: 0;
+  -moz-transition: all 350ms cubic-bezier(.42, 0, .58, 1);
+  -ms-transition: all 350ms cubic-bezier(.42, 0, .58, 1);
+  -o-transition: all 350ms cubic-bezier(.42, 0, .58, 1);
+  -webkit-transition: all 350ms cubic-bezier(.42, 0, .58, 1);
+  transition: all 350ms cubic-bezier(.42, 0, .58, 1);
+}
+
+.open-mobile-nav {
+  max-height: 5000px;
+  opacity: 1;
+}
+
+@include media-breakpoint-down(lg) {
+  .site-navigation {
+    .container {
+      display: flow-root;
+
+      .site-branding-wrapper {
+        float: left;
+        display: table;
+        height: 90px;
+        overflow: hidden;
+
+        div {
+          display: table-cell;
+          vertical-align: middle;
+        }
+      }
+    }
+
+    #agilitywp_nav_menu {
+      display: none;
+    }
+
+    #mobile_agilitywp_nav_menu {
+      display: flex;
+      flex-direction: column;
+
+      .menu-item {
+        margin: 5px 0;
+
+        a {
+          padding-top: 0.6em;
+          padding-bottom: 0.4em;
+          border-left: 3px solid transparent;
+          padding-left: 8px;
+          margin-left: -8px;
+
+          &:hover {
+            border-color: $primary;
+          }
+        }
+      }
+
+      .menu-item-has-children {
+        button {
+          float: right;
+          background-color: transparent;
+          color: $black;
+
+          i {
+            font-size: 1.5em;
+          }
+        }
+        button + a {
+          float: left
+        }
+
+        .sub-menu {
+          @include sub-menu;
+          padding: 15px 10px;
+          margin-left: 19px;
+          margin-bottom: 10px;
+          margin-top: 55px;
+
+          a {
+            @include sub-menu-link;
+            padding-left: 8px;
+
+            &::after {
+              display: none;
+            }
+          }
+          a {
+            margin-left: 0;
+          }
+        }
+
+        .sub-menu {
+          display: none;
+          opacity: 0;
+          max-height: 0;
+          visibility: hidden;
+          transition: max-height 0.5s linear;
+        }
+
+        &.dropdown-show .sub-menu {
+          display: block;
+          opacity: 1;
+          visibility: visible;
+          max-height: 500px;
+        }
+      }
+
+      a {
+        @include navigation-link;
+
+        &:hover {
+          color: $primary;
+        }
+      }
+    }
+
+    // Humberger Toggle
+    .agility_hamburger {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      display: block;
+      float: right;
+      height: 50px;
+      width: 50px;
+      margin: 18px;
+
+      .hamburger-toggle {
+        position: relative;
+      }
+
+      span {
+        background-color: $black;
+        width: 80%;
+        height: 4px;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: transform 0.5s, width 0.5s;
+      }
+
+      .burger_line-one {
+        transform: translate(-50%, -17px);
+      }
+
+      .burger_line-three {
+        transform: translate(-50%, 11px);
+      }
+
+      &.open-humberger {
+        span {
+          background-color: $light-gray;
+        }
+
+        .burger_line-one {
+          transform: translate(-50%, -50%) rotate(-45deg);
+        }
+
+        .burger_line-two {
+          width: 0;
+        }
+
+        .burger_line-three {
+          transform: translate(-50%, -50%) rotate(45deg);
+        }
+      }
     }
   }
 }
