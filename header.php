@@ -27,6 +27,9 @@
 		<nav id="site-navigation" class="site-navigation" role="navigation">
 			<div class="container">
 			<div class="site-branding-wrapper">
+				<?php
+					if ( has_custom_logo() ) :
+				?>
 				<div class="site-logo">
 				<?php
 					$agilitywp_custom_logo_id   = get_theme_mod( 'custom_logo' );
@@ -37,12 +40,16 @@
 					<img src="<?php echo esc_url( $agilitywp_custom_logo_url ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>"/>
 				</a>
 				</div>
-				<div class="site-info" style="display: none;">
+				<?php else: ?>
+				<div class="site-info">
 					<p class="site-title">
-						<a href="#" rel="home">AgilityWP</a>
+						<a href="<?php echo home_url(); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
 					</p>
-					<p class="site-description">This is a site WordPress</p>
+					<?php if ( get_bloginfo( 'description' )  !== '' ) { ?>
+						<p class="site-description"><?php bloginfo( 'description' ); ?></p>
+					<?php } ?>
 				</div>
+				<?php endif; ?>
 			</div>
 			<button class="agility_hamburger" type="button" role="button" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'agilitywp' ); ?>">
 				<div class="hamburger-toggle">
