@@ -4,7 +4,7 @@ const gruntConfig = function( grunt ) {
 		sass: {
 			dev: {
 				options: {
-					sourcemap: 'none',
+					sourcemap: 'file',
 					style: 'expanded',
 					loadPath: 'node_modules/bootstrap/scss',
 				},
@@ -42,8 +42,8 @@ const gruntConfig = function( grunt ) {
 				expand: true,
 				flatten: true,
 				src: [
-					'resources/fonts/Catamaran/**',
-					'resources/fonts/Quicksand/**',
+					'resources/fonts/Mulish/**',
+					'resources/fonts/IBMPlexSans/**',
 				],
 				dest: 'assets/fonts/',
 				filter: 'isFile',
