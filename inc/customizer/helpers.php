@@ -14,11 +14,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Sanitize Checkbox tabut_customizer_sanitize_checkbox
+ * Sanitize Checkbox agilitywp_sanitize_checkbox
  *
- * @param  mixed $checked
- * @return void
+ * @since 0.0.3
  */
 function agilitywp_sanitize_checkbox( $checked ) {
 	return ( ( isset( $checked ) && true == $checked ) ? true : false );
+}
+
+/**
+ * Sanitize Range value agilitywp_sanitize_range
+ *
+ * @since 0.0.3
+ */
+function agilitywp_sanitize_range( $val ) {
+	return is_numeric( $val ) ? $val : '';
 }
