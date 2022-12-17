@@ -50,41 +50,111 @@
   background-color: $white;
 
   .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+    display: flow-root;
 
-  .site-branding-wrapper {
-    .site-info {
+    @include media-breakpoint-down(lg) {
       display: flex;
-      margin: 15px auto;
-
-      .site-title {
-        font-size: 0.999rem;
-        font-weight: 700;
-      }
-
-      .site-description {
-        font-size: 0.99rem;
-        border-left: 2px solid #e7e7e7;
-        padding-left: 10px;
-        margin-left: 10px;
-        display: inline-block;
-      }
-
-      p {
-        margin-bottom: 0;
+      justify-content: space-between;
+      align-items: center;
+    }
+    &:not(.mobile-navigation) {
+      .menu-primary-menu-container {
+        float: right;
+        @include media-breakpoint-down(lg) {
+          display: none;
+        }
       }
     }
   }
 
-  #mobile_agilitywp_nav_menu {
-    display: none;
+  .container.mobile-navigation {
+    display: flow-root;
+    box-shadow: 7px 4px 5px 2px #0000000d;
   }
 
-  .mobile-navigation {
-    a {}
+  #mobile_agilitywp_nav_menu {
+    display: none;
+
+    @include media-breakpoint-down(lg) {
+      display: flex;
+      flex-direction: column;
+
+      .menu-item {
+        margin: 5px 0;
+
+        a {
+          padding-top: 0.6em;
+          padding-bottom: 0.4em;
+          border-left: 3px solid transparent;
+          padding-left: 8px;
+          margin-left: -8px;
+
+          &:hover {
+            border-color: $primary;
+          }
+        }
+      }
+
+      .menu-item-has-children {
+        button {
+          float: right;
+          background-color: transparent;
+          color: $black;
+
+          i {
+            font-size: 1.5em;
+          }
+        }
+
+        button+a {
+          float: left
+        }
+
+        .sub-menu {
+          @include sub-menu;
+          padding: 15px 10px;
+          margin-left: 19px;
+          margin-bottom: 10px;
+          margin-top: 55px;
+
+          a {
+            @include sub-menu-link;
+            padding-left: 8px;
+
+            &::after {
+              display: none;
+            }
+          }
+
+          a {
+            margin-left: 0;
+          }
+        }
+
+        .sub-menu {
+          display: none;
+          opacity: 0;
+          max-height: 0;
+          visibility: hidden;
+          transition: max-height 0.5s linear;
+        }
+
+        &.dropdown-show .sub-menu {
+          display: block;
+          opacity: 1;
+          visibility: visible;
+          max-height: 500px;
+        }
+      }
+
+      a {
+        @include navigation-link;
+
+        &:hover {
+          color: $primary;
+        }
+      }
+    }
   }
 
   #agilitywp_nav_menu {
@@ -191,6 +261,45 @@
   }
 }
 
+.site-branding-wrapper {
+  float: left;
+
+  .site-info {
+    display: flex;
+    align-items: center;
+    margin: 15px auto;
+
+    .site-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+
+      @include media-breakpoint-down(sm) {
+        font-size: 1rem;
+      }
+    }
+
+    .site-description {
+      font-size: 1.2rem;
+      border-left: 2px solid #e7e7e7;
+      padding-left: 10px;
+      margin-left: 10px;
+      display: inline-block;
+
+      @include media-breakpoint-down(sm) {
+        font-size: 0.8rem;
+      }
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    overflow: hidden;
+  }
+}
+
 .mobile-navigation {
   margin: 0 auto;
   background-color: $white;
@@ -203,10 +312,6 @@
   overflow: hidden;
   z-index: 10;
   opacity: 0;
-  -moz-transition: all 350ms cubic-bezier(.42, 0, .58, 1);
-  -ms-transition: all 350ms cubic-bezier(.42, 0, .58, 1);
-  -o-transition: all 350ms cubic-bezier(.42, 0, .58, 1);
-  -webkit-transition: all 350ms cubic-bezier(.42, 0, .58, 1);
   transition: all 350ms cubic-bezier(.42, 0, .58, 1);
 }
 
@@ -217,105 +322,6 @@
 
 @include media-breakpoint-down(lg) {
   .site-navigation {
-    .container {
-      display: flow-root;
-
-      .site-branding-wrapper {
-        float: left;
-        display: table;
-        height: 90px;
-        overflow: hidden;
-
-        div {
-          display: table-cell;
-          vertical-align: middle;
-        }
-      }
-    }
-
-    #agilitywp_nav_menu {
-      display: none;
-    }
-
-    #mobile_agilitywp_nav_menu {
-      display: flex;
-      flex-direction: column;
-
-      .menu-item {
-        margin: 5px 0;
-
-        a {
-          padding-top: 0.6em;
-          padding-bottom: 0.4em;
-          border-left: 3px solid transparent;
-          padding-left: 8px;
-          margin-left: -8px;
-
-          &:hover {
-            border-color: $primary;
-          }
-        }
-      }
-
-      .menu-item-has-children {
-        button {
-          float: right;
-          background-color: transparent;
-          color: $black;
-
-          i {
-            font-size: 1.5em;
-          }
-        }
-        button + a {
-          float: left
-        }
-
-        .sub-menu {
-          @include sub-menu;
-          padding: 15px 10px;
-          margin-left: 19px;
-          margin-bottom: 10px;
-          margin-top: 55px;
-
-          a {
-            @include sub-menu-link;
-            padding-left: 8px;
-
-            &::after {
-              display: none;
-            }
-          }
-          a {
-            margin-left: 0;
-          }
-        }
-
-        .sub-menu {
-          display: none;
-          opacity: 0;
-          max-height: 0;
-          visibility: hidden;
-          transition: max-height 0.5s linear;
-        }
-
-        &.dropdown-show .sub-menu {
-          display: block;
-          opacity: 1;
-          visibility: visible;
-          max-height: 500px;
-        }
-      }
-
-      a {
-        @include navigation-link;
-
-        &:hover {
-          color: $primary;
-        }
-      }
-    }
-
     // Humberger Toggle
     .agility_hamburger {
       background-color: transparent;
@@ -326,6 +332,7 @@
       height: 50px;
       width: 50px;
       margin: 18px;
+      margin-right: 0;
 
       .hamburger-toggle {
         position: relative;
