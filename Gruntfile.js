@@ -14,6 +14,7 @@ const gruntConfig = function( grunt ) {
 					'assets/css/fonts.css': 'resources/sass/fonts.scss',
 					'assets/css/style-editor.css':
             'resources/sass/editor/style-editor.scss',
+					'assets/css/customizer/range-control.css': 'resources/sass/customizer/range-control.scss',
 				},
 			},
 			dist: {
@@ -27,6 +28,7 @@ const gruntConfig = function( grunt ) {
 					'assets/css/fonts.css': 'resources/sass/fonts.scss',
 					'assets/css/style-editor.css':
             'resources/sass/editor/style-editor.scss',
+					'assets/css/customizer/range-control.css': 'resources/sass/customizer/range-control.scss',
 				},
 			},
 		},
@@ -95,6 +97,7 @@ const gruntConfig = function( grunt ) {
 				files: {
 					'assets/js/customizer.min.js': [ 'resources/js/customizer.js' ],
 					'assets/js/script.min.js': 'resources/js/script.js',
+					'assets/js/range-control.min.js': 'resources/js/range-control.js',
 				},
 			},
 		},
