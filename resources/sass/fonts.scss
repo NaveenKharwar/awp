@@ -1,111 +1,31 @@
 @font-face {
-	font-family: 'Catamaran';
-	font-style: thin;
-	font-weight: 100;
-	font-display: swap;
-	src: url( ../fonts/catamaran-100.woff2 ) format('woff2');
-}
-
-@font-face {
-	font-family: 'Catamaran';
-	font-style: extralight;
-	font-weight: 200;
-	font-display: swap;
-	src: url( ../fonts/catamaran-200.woff2 ) format('woff2');
-}
-
-@font-face {
-	font-family: 'Catamaran';
-	font-style: light;
-	font-weight: 300;
-	font-display: swap;
-	src: url( ../fonts/catamaran-300.woff2 ) format('woff2');
-}
-
-@font-face {
-	font-family: 'Catamaran';
-	font-style: regular;
-	font-weight: 400;
-	font-display: swap;
-	src: url( ../fonts/catamaran-400.woff2 ) format('woff2');
-}
-
-@font-face {
-	font-family: 'Catamaran';
-	font-style: medium;
+	font-family: 'Mulish';
+	font-style: Medium;
 	font-weight: 500;
 	font-display: swap;
-	src: url( ../fonts/catamaran-500.woff2 ) format('woff2');
+	src: url( ../fonts/Mulish-Medium.woff ) format('woff2');
 }
 
 @font-face {
-	font-family: 'Catamaran';
-	font-style: semibold;
-	font-weight: 600;
-	font-display: swap;
-	src: url( ../fonts/catamaran-600.woff2 ) format('woff2');
-}
-
-@font-face {
-	font-family: 'Catamaran';
-	font-style: bold;
-	font-weight: 700;
-	font-display: swap;
-	src: url( ../fonts/catamaran-700.woff2 ) format('woff2');
-}
-
-@font-face {
-	font-family: 'Catamaran';
-	font-style: bold;
-	font-weight: 800;
-	font-display: swap;
-	src: url( ../fonts/catamaran-800.woff2 ) format('woff2');
-}
-
-@font-face {
-	font-family: 'Catamaran';
-	font-style: black;
-	font-weight: 900;
-	font-display: swap;
-	src: url( ../fonts/catamaran-900.woff2 ) format('woff2');
-}
-
-@font-face {
-	font-family: 'Quicksand';
-	font-style: light;
-	font-weight: 300;
-	font-display: swap;
-	src: url( ../fonts/quicksand-300.woff2 ) format('woff2');
-}
-
-@font-face {
-	font-family: 'Quicksand';
-	font-style: regular;
-	font-weight: 400;
-	font-display: swap;
-	src: url( ../fonts/quicksand-400.woff2 ) format('woff2');
-}
-
-@font-face {
-	font-family: 'Quicksand';
-	font-style: medium;
+	font-family: 'Mulish';
+	font-style: Italic;
 	font-weight: 500;
 	font-display: swap;
-	src: url( ../fonts/quicksand-500.woff2 ) format('woff2');
+	src: url( ../fonts/Mulish-MediumItalic.woff ) format('woff2');
 }
 
 @font-face {
-	font-family: 'Quicksand';
-	font-style: semibold;
-	font-weight: 600;
+	font-family: 'IBM Plex Sans';
+	font-style: Regular;
+	font-weight: 400;
 	font-display: swap;
-	src: url( ../fonts/quicksand-600.woff2 ) format('woff2');
+	src: url( ../fonts/IBMPlexSans-Regular.woff ) format('woff2');
 }
 
 @font-face {
-	font-family: 'Quicksand';
-	font-style: bold;
-	font-weight: 700;
+	font-family: 'IBM Plex Sans';
+	font-style: Italic;
+	font-weight: 400;
 	font-display: swap;
-	src: url( ../fonts/quicksand-700.woff2 ) format('woff2');
+	src: url( ../fonts/IBMPlexSans-Italic.woff ) format('woff2');
 }

@@ -25,8 +25,12 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'agilitywp' ); ?></a>
 	<header id="masthead" class="site-header">
 		<nav id="site-navigation" class="site-navigation" role="navigation">
-			<div class="container">
+			<div class="container <?php echo !has_custom_logo( ) ? 'd-flex justify-content-between align-items-center': ''; ?>">
 			<div class="site-branding-wrapper">
+				<?php
+					if ( has_custom_logo() ) :
+					$logo_width = get_theme_mod('set_logo_resizer');
+				?>
 				<div class="site-logo">
 				<?php
 					$agilitywp_custom_logo_id   = get_theme_mod( 'custom_logo' );
@@ -34,15 +38,19 @@
 					$agilitywp_custom_logo_url  = $agilitywp_custom_logo_data[0];
 				?>
 				<a href="<?php echo esc_url( home_url( '/', 'https' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" rel="home">
-					<img src="<?php echo esc_url( $agilitywp_custom_logo_url ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>"/>
+					<img src="<?php echo esc_url( $agilitywp_custom_logo_url ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" style="max-width: <?php echo $logo_width; ?>px;"/>
 				</a>
 				</div>
-				<div class="site-info" style="display: none;">
+				<?php else: ?>
+				<div class="site-info">
 					<p class="site-title">
-						<a href="#" rel="home">AgilityWP</a>
+						<a href="<?php echo home_url(); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
 					</p>
-					<p class="site-description">This is a site WordPress</p>
+					<?php if ( get_bloginfo( 'description' )  !== '' ) { ?>
+						<p class="site-description"><?php bloginfo( 'description' ); ?></p>
+					<?php } ?>
 				</div>
+				<?php endif; ?>
 			</div>
 			<button class="agility_hamburger" type="button" role="button" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'agilitywp' ); ?>">
 				<div class="hamburger-toggle">

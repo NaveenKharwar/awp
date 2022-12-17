@@ -1,0 +1,18 @@
+@import '../abstracts/variables/colors';
+
+.agility_range-control {
+	margin-bottom: 12px;
+	.agility_control-field {
+		display: flex;
+		.current-range-value {
+			margin-left: 20px;
+			border: 1px solid $color__background-hr;
+			color: $secondary;
+			padding: 8px 15px;
+			border-radius: 4px;
+			&::after {
+				content: "px";
+			}
+		}
+	}
+}

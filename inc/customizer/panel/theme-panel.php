@@ -10,6 +10,8 @@
  * @return void
  */
 
+namespace AgilityWP\Customizer\Panels;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
@@ -21,8 +23,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return void
  */
 
-if ( ! function_exists( 'agilitywp_theme_options' ) ) {
-    function agilitywp_theme_options( $wp_customize ) {
+if ( ! function_exists( 'theme_panels' ) ) {
+    function theme_panels( $wp_customize ) {
         $wp_customize->add_panel(
             'pan_theme_options',
             array(
@@ -35,5 +37,5 @@ if ( ! function_exists( 'agilitywp_theme_options' ) ) {
         );
     }
 
-    add_action( 'customize_register', 'agilitywp_theme_options' );
+    add_action( 'customize_register', __NAMESPACE__.  '\theme_panels' );
 }

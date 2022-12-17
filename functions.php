@@ -143,7 +143,7 @@ add_action( 'enqueue_block_editor_assets', 'agilitywp_block_editor_styles' );
 function agilitywp_styles() {
 	wp_enqueue_style( 'agilitywp-style', get_stylesheet_uri(), array(), AGILITYWP_VERSION );
 	wp_style_add_data( 'agilitywp-style', 'rtl', 'replace' );
-	wp_enqueue_style( 'agilitywp-theme', AGILITYWP_THEME_DIR . 'css/theme.min.css', array(), AGILITYWP_VERSION );
+	wp_enqueue_style( 'agilitywp-theme', AGILITYWP_THEME_DIR . 'css/theme.css', array(), AGILITYWP_VERSION );
 	wp_enqueue_style( 'agilitywp-theme-boxicons', AGILITYWP_THEME_DIR . 'boxicons/css/boxicons.min.css', array(), AGILITYWP_VERSION );
 	wp_enqueue_style( 'agilitywp-google-fonts', AGILITYWP_THEME_DIR . 'css/fonts.css', array(), AGILITYWP_VERSION );
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -207,6 +207,9 @@ require THEME_DIR . '/inc/template-functions.php';
 require THEME_DIR . '/inc/customizer.php';
 require THEME_DIR . '/inc/custom-header.php';
 require THEME_DIR . '/inc/customizer/panel/theme-panel.php';
+require THEME_DIR . '/inc/customizer/panel/header.php';
 require THEME_DIR . '/inc/customizer/options/page-header.php';
 require THEME_DIR . '/inc/customizer/options/header-color.php';
-require THEME_DIR . '/inc/customizer/sections/global-colors.php';
+require THEME_DIR . '/inc/customizer/sections/colors.php';
+require THEME_DIR . '/inc/customizer/customizer-custom-controls/inc/range-control.php';
+require THEME_DIR . '/inc/customizer/options/logo-resizer.php';
