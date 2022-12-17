@@ -50,11 +50,9 @@
   background-color: $white;
 
   .container {
-    display: flow-root;
-
+    display: flex;
+    justify-content: space-between;
     @include media-breakpoint-down(lg) {
-      display: flex;
-      justify-content: space-between;
       align-items: center;
     }
     &:not(.mobile-navigation) {
@@ -262,8 +260,8 @@
 }
 
 .site-branding-wrapper {
-  float: left;
-
+  display: flex;
+  align-items: center;
   .site-info {
     display: flex;
     align-items: center;

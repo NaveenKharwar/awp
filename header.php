@@ -25,7 +25,7 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'agilitywp' ); ?></a>
 	<header id="masthead" class="site-header">
 		<nav id="site-navigation" class="site-navigation" role="navigation">
-			<div class="container <?php echo !has_custom_logo( ) ? 'd-flex justify-content-between align-items-center': ''; ?>">
+			<div class="container">
 			<div class="site-branding-wrapper">
 				<?php
 					if ( has_custom_logo() ) :
@@ -65,6 +65,7 @@
 						'theme_location'  => 'primary',
 						'depth'           => 2,
 						'menu_id'         => 'agilitywp_nav_menu',
+						'container_class' => 'menu-primary-menu-container'
 					)
 				);
 			?>
