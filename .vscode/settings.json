@@ -6,7 +6,7 @@
     "editor.lineHeight": 25,
     "editor.letterSpacing": 0.5,
     "files.trimTrailingWhitespace": true,
-    "editor.fontWeight": "300",
+    "editor.fontWeight": "400",
     "prettier.eslintIntegration": true,
     "editor.cursorStyle": "line",
     "editor.cursorWidth": 5,
