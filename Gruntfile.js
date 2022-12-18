@@ -83,7 +83,7 @@ const gruntConfig = function( grunt ) {
 					'!README.md',
 					'!CHANGELOG.md',
 					'!style.css.map',
-					'!assets/css/**.css.map',
+					'!assets/**/**.css.map',
 					'!wpcs',
 					// "!theme.css.map",
 					// "!style-editor.css.map",
