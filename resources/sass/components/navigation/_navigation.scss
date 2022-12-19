@@ -66,13 +66,16 @@
   }
 
   .container.mobile-navigation {
+    display: none;
+    border: 2px solid #0000000d;
+    @include media-breakpoint-down(lg) {
     display: flow-root;
-    box-shadow: 7px 4px 5px 2px #0000000d;
+
+    }
   }
 
   #mobile_agilitywp_nav_menu {
     display: none;
-
     @include media-breakpoint-down(lg) {
       display: flex;
       flex-direction: column;
