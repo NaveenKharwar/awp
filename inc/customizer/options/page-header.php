@@ -29,6 +29,7 @@ if ( ! function_exists( 'header_options' ) ) {
 			'set_page_header',
 			array(
 				'type'              => 'theme_mod',
+				'default'           => false,
 				'sanitize_callback' => 'agilitywp_sanitize_checkbox',
 			)
 		);

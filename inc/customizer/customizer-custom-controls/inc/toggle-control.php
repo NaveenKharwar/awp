@@ -14,7 +14,7 @@ if (class_exists('WP_Customize_Control')) {
         }
 
         public function render_content() {
-            $value = $this->value() == 'on' ? false : true;
+            $value = $this->value();
             $label = $this->label;
             $description = $this->description;
             ?>
