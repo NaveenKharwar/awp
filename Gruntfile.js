@@ -15,6 +15,7 @@ const gruntConfig = function( grunt ) {
 					'assets/css/style-editor.css':
             'resources/sass/editor/style-editor.scss',
 					'assets/css/customizer/range-control.css': 'resources/sass/customizer/range-control.scss',
+					'assets/css/customizer/toggle-control.css': 'resources/sass/customizer/toggle-control.scss',
 				},
 			},
 			dist: {
@@ -29,6 +30,7 @@ const gruntConfig = function( grunt ) {
 					'assets/css/style-editor.css':
             'resources/sass/editor/style-editor.scss',
 					'assets/css/customizer/range-control.css': 'resources/sass/customizer/range-control.scss',
+					'assets/css/customizer/toggle-control.css': 'resources/sass/customizer/toggle-control.scss',
 				},
 			},
 		},

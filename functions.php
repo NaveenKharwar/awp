@@ -66,6 +66,17 @@ if ( ! function_exists( 'AGILITYWP_VERSION' ) ) :
 				)
 			)
 		);
+
+		add_theme_support(
+			'custom-header',
+			array(
+				'flex-width'             => true,
+				// 'width'                  => 1680,
+				'flex-height'            => true,
+				// 'height'                 => 500,
+			)
+		);
+
 		register_nav_menus(
 			array(
 				'primary' => esc_html__( 'Primary', 'agilitywp' ),
@@ -204,12 +215,17 @@ add_filter( 'excerpt_more', 'agilitywp_excerpt_more' );
 require THEME_DIR . '/inc/customizer/helpers.php';
 require THEME_DIR . '/inc/template-tags.php';
 require THEME_DIR . '/inc/template-functions.php';
+require THEME_DIR . '/inc/classes/Excerpt.php';
 require THEME_DIR . '/inc/customizer.php';
 require THEME_DIR . '/inc/custom-header.php';
 require THEME_DIR . '/inc/customizer/panel/theme-panel.php';
 require THEME_DIR . '/inc/customizer/panel/header.php';
-require THEME_DIR . '/inc/customizer/options/page-header.php';
 require THEME_DIR . '/inc/customizer/options/header-color.php';
 require THEME_DIR . '/inc/customizer/sections/colors.php';
 require THEME_DIR . '/inc/customizer/customizer-custom-controls/inc/range-control.php';
+require THEME_DIR . '/inc/customizer/customizer-custom-controls/inc/toggle-control.php';
+require THEME_DIR . '/inc/customizer/options/page-header.php';
+require THEME_DIR . '/inc/customizer/options/header-image.php';
 require THEME_DIR . '/inc/customizer/options/logo-resizer.php';
+require THEME_DIR . '/inc/compatibility/page_builders.php';
+require THEME_DIR . '/inc/compatibility/elementor.php';

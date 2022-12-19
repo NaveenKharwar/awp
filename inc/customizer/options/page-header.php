@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Customizer setting for page header.
  *
@@ -26,34 +25,28 @@ if ( ! function_exists( 'header_options' ) ) {
 	 */
 	function header_options( $wp_customize ) {
 
-		$wp_customize->add_section(
-			'sec_page_header',
-			array(
-				'title'       => __( 'Header Image Options', 'agilitywp' ),
-				'description' => __( 'Check this to enable the header', 'agilitywp' ),
-				'panel'       => 'pan_header',
-			)
-		);
-
 		$wp_customize->add_setting(
 			'set_page_header',
 			array(
 				'type'              => 'theme_mod',
-				'default'           => '',
+				'default'           => 'hide',
 				'sanitize_callback' => 'agilitywp_sanitize_checkbox',
 			)
 		);
 
 		$wp_customize->add_control(
-			'set_page_header',
-			array(
-				'label'    => __( 'Enable Page Header', 'agilitywp' ),
-				'section'  => 'sec_page_header',
-				'settings' => 'set_page_header',
-				'type'     => 'checkbox',
+			new \Toggle_Control (
+				$wp_customize,
+				'set_page_header',
+				array(
+					'label'    => __( 'Enable Page Header', 'agilitywp' ),
+					'section'  => 'header_image',
+					'settings' => 'set_page_header',
+					'type'     => 'toggle',
+					'priority' => 1
+				)
 			)
 		);
-
 	}
 
 	add_action( 'customize_register', __NAMESPACE__ . '\header_options' );

@@ -15,9 +15,8 @@
 get_header();
 ?>
 
-<div class="container">
-	<div class="row mb-5">
-		<div class="col-lg-8 col-12 pl-lg-0">
+
+<div class="col-lg-8 col-12 pl-lg-0">
 	<main id="primary" class="site-main">
 
 		<?php
