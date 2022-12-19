@@ -14,7 +14,7 @@ if (class_exists('WP_Customize_Control')) {
         }
 
         public function render_content() {
-            $value = $this->value() == 'on' ? true : false;
+            $value = $this->value() == 'on' ? false : true;
             $label = $this->label;
             $description = $this->description;
             ?>
@@ -25,7 +25,7 @@ if (class_exists('WP_Customize_Control')) {
                 <?php if ( ! empty( $description ) ) : ?>
                     <span class="customize-control-description"><?php echo $description; ?></span>
                 <?php endif; ?>
-				<input type="checkbox" value="<?php echo esc_attr( $value ); ?>" <?php echo $this->link(); checked( $value ); ?> />
+				<input type="checkbox" value="<?php echo esc_attr( $value ); ?>" <?php echo $this->link();?> <?php echo $this->value() ? 'checked="checked"' : ''; ?> />
                 <span class="toggle-slider"></span>
             </label>
             <?php
