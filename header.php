@@ -28,25 +28,25 @@
 			<div class="container">
 			<div class="site-branding-wrapper">
 				<?php
-					if ( has_custom_logo() ) :
-					$logo_width = get_theme_mod('set_logo_resizer');
-				?>
+				if ( has_custom_logo() ) :
+					$logo_width = get_theme_mod( 'set_logo_resizer' );
+					?>
 				<div class="site-logo">
-				<?php
+					<?php
 					$agilitywp_custom_logo_id   = get_theme_mod( 'custom_logo' );
 					$agilitywp_custom_logo_data = wp_get_attachment_image_src( $agilitywp_custom_logo_id, 'full' );
 					$agilitywp_custom_logo_url  = $agilitywp_custom_logo_data[0];
-				?>
+					?>
 				<a href="<?php echo esc_url( home_url( '/', 'https' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" rel="home">
 					<img src="<?php echo esc_url( $agilitywp_custom_logo_url ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" style="max-width: <?php echo $logo_width; ?>px;"/>
 				</a>
 				</div>
-				<?php else: ?>
+				<?php else : ?>
 				<div class="site-info">
 					<p class="site-title">
 						<a href="<?php echo home_url(); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
 					</p>
-					<?php if ( get_bloginfo( 'description' )  !== '' ) { ?>
+					<?php if ( get_bloginfo( 'description' ) !== '' ) { ?>
 						<p class="site-description"><?php bloginfo( 'description' ); ?></p>
 					<?php } ?>
 				</div>
@@ -65,46 +65,47 @@
 						'theme_location'  => 'primary',
 						'depth'           => 2,
 						'menu_id'         => 'agilitywp_nav_menu',
-						'container_class' => 'menu-primary-menu-container'
+						'container_class' => 'menu-primary-menu-container',
 					)
 				);
-			?>
+				?>
 			</div>
 			<div class="container mobile-navigation">
 			<?php
 				wp_nav_menu(
 					array(
-						'theme_location'  => 'primary',
-						'depth'           => 2,
-						'menu_id'         => 'mobile_agilitywp_nav_menu',
+						'theme_location' => 'primary',
+						'depth'          => 2,
+						'menu_id'        => 'mobile_agilitywp_nav_menu',
 					)
 				);
-			?>
+				?>
 			</div>
 		</nav>
-		<?php if ( '1' == get_theme_mod( 'set_page_header' ) ) { ?>
-		<?php if ( get_header_image() ) { ?>
-	<div class="header-image" style="background-image: url(<?php header_image(); ?>);">
-		<div class="container">
-			<div class="row">
-				<div class="site-branding">
-					<h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
-					<p class="site-description"><?php bloginfo( 'description' ); ?></p>
+		<?php
+		if ( get_theme_mod( 'set_page_header' ) ) {
+			$header_image = get_header_image();
+			if ( $header_image ) {
+				$header_style = sprintf( "style='background-image: url(%s);'", esc_url( $header_image ) );
+			  	$header_class = 'header-image';
+			} else {
+			  	$header_style  = 'class="bg-secondary py-5"';
+			  	$header_class = '';
+			}
+			?>
+
+			<div <?php echo $header_style; ?> class="<?php echo esc_attr( $header_class ); ?>">
+			  <div class="container">
+				<div class="site-branding d-flex justify-content-start">
+				  <div class="text-start">
+					<h1 class="site-title"><?php echo esc_html( get_bloginfo( 'name' ) ); ?></h1>
+					<p class="site-description"><?php echo esc_html( get_bloginfo( 'description' ) ); ?></p>
+				  </div>
 				</div>
+			  </div>
 			</div>
-		</div>
-	</div>
-		<?php } else { ?>
-	<div class="bg-secondary py-5">
-		<div class="container">
-			<div class="site-branding d-flex justify-content-start">
-				<div class="text-start">
-					<h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
-					<p class="site-description"><?php bloginfo( 'description' ); ?></p>
-				</div>
-			</div>
-		</div>
-		</div>
-		<?php } ?>
-		<?php } ?>
+		<?php
+		} ?>
 	</header><!-- #masthead -->
+	<div class="container">
+	<div class="row mb-5">

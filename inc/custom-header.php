@@ -11,27 +11,10 @@
  * @package Agility_WP
  */
 
-/**
- * Set up the WordPress core custom header feature.
- *
- * @uses agilitywp_header_style()
- */
-function agilitywp_custom_header_setup() {
-	add_theme_support(
-		'custom-header',
-		apply_filters(
-			'agilitywp_custom_header_args',
-			array(
-				'default-image'      => '',
-				'default-text-color' => '000000',
 
-				'flex-height'        => true,
-				'wp-head-callback'   => 'agilitywp_header_style',
-			)
-		)
-	);
-}
-add_action( 'after_setup_theme', 'agilitywp_custom_header_setup' );
+
+namespace AgilityWP\CustomHeader;
+
 
 if ( ! function_exists( 'agilitywp_header_style' ) ) :
 	/**

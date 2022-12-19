@@ -9,7 +9,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 
 		public function enqueue() {
 			wp_enqueue_script( 'agility-range', AGILITYWP_THEME_DIR . 'js/range-control.min.js', AGILITYWP_VERSION, true );
-         wp_enqueue_style( 'agility-range', AGILITYWP_THEME_DIR . 'css/customizer/range-control.css', AGILITYWP_VERSION );
+			wp_enqueue_style( 'agility-range', AGILITYWP_THEME_DIR . 'css/customizer/range-control.css', AGILITYWP_VERSION );
 		}
 
 		// Render the control's content.
@@ -21,7 +21,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 				      <span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
 			      <?php endif; ?>
                <?php if ( ! empty( $this->description ) ) : ?>
-				      <span class="description customize-control-description"><?php echo $this->description; ?></span>
+				    <span class="description customize-control-description"><?php echo $this->description; ?></span>
 			      <?php endif; ?>
 			      <div class="agility_control-field">
                   <input data-input-type="range" type="range" <?php $this->input_attrs(); ?> value="<?php echo esc_attr( $this->value() ); ?>" <?php $this->link(); ?> onchange="updateRangeValue(this.value);"/>

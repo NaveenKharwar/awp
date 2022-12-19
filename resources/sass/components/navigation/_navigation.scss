@@ -33,12 +33,12 @@
       }
 
       .nav-title {
-        font-weight: $font-weight-bold;
+        font-weight: $font-weight-normal;
       }
     }
 
     :first-child {
-      font-weight: $font-weight-bold;
+      font-weight: $font-weight-normal;
       text-transform: uppercase;
     }
   }
@@ -269,8 +269,6 @@
 
     .site-title {
       font-size: 1.5rem;
-      font-weight: 700;
-
       @include media-breakpoint-down(sm) {
         font-size: 1rem;
       }

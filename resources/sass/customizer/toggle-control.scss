@@ -1,0 +1,53 @@
+@import '../abstracts/variables/colors';
+
+.agility_range-toggle {
+	display: flex;
+    flex-direction: column;
+	cursor: pointer;
+
+	input[type="checkbox"] {
+	  display: none;
+	}
+
+	.description {
+	  margin-right: 10px;
+	}
+
+	.toggle-slider {
+	  position: relative;
+	  width: 40px;
+	  height: 20px;
+	  background: #ddd;
+	  border-radius: 20px;
+	  transition: all .3s;
+
+	  &:before {
+		content: "";
+		position: absolute;
+		top: 2px;
+		left: 2px;
+		width: 16px;
+		height: 16px;
+		background: #fff;
+		border-radius: 50%;
+		transition: all .3s;
+	  }
+	}
+
+	input[type="checkbox"]:checked + .toggle-slider {
+	  background: $primary;
+
+	  &:before {
+		left: calc(100% - 2px);
+		transform: translateX(-100%);
+	  }
+	}
+
+	&:hover {
+	  .toggle-slider {
+		background: #ccc;
+	  }
+	}
+  }
+
+
