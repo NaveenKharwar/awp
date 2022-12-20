@@ -43,7 +43,7 @@
 	  */
 	 public function run() {
 		 if ( $this->page_builder ) {
-			 update_post_meta( $this->post_id, '_wp_page_template', 'template-page-builder.php' );
+			 update_post_meta( $this->post_id, '_wp_page_template', 'page-templates/template-pagebuilder.php' );
 		 }
 	 }
 

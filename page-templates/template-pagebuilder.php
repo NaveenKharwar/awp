@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Page Builder
+ * Template Name: Page Builder - Full Width
  *
  * This is the template used for the pages and posts that are build with Page Builders
  *
@@ -10,10 +10,11 @@
  */
 
  get_header();
+
  if ( have_posts() ) {
 	while ( have_posts() ) {
 		the_post();
-		the_content();
+		get_template_part( 'template-parts/content', 'pagebuilder' );
 	}
 }
 get_footer();
