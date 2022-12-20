@@ -82,30 +82,4 @@
 				?>
 			</div>
 		</nav>
-		<?php
-		if ( get_theme_mod( 'set_page_header' ) ) {
-			$header_image = get_header_image();
-			if ( $header_image ) {
-				$header_style = sprintf( "style='background-image: url(%s);'", esc_url( $header_image ) );
-			  	$header_class = 'header-image';
-			} else {
-			  	$header_style  = 'class="bg-secondary py-5"';
-			  	$header_class = '';
-			}
-			?>
-
-			<div <?php echo $header_style; ?> class="<?php echo esc_attr( $header_class ); ?>">
-			  <div class="container">
-				<div class="site-branding d-flex justify-content-start">
-				  <div class="text-start">
-					<h1 class="site-title"><?php echo esc_html( get_bloginfo( 'name' ) ); ?></h1>
-					<p class="site-description"><?php echo esc_html( get_bloginfo( 'description' ) ); ?></p>
-				  </div>
-				</div>
-			  </div>
-			</div>
-		<?php
-		} ?>
 	</header><!-- #masthead -->
-	<div class="container">
-	<div class="row mb-5">

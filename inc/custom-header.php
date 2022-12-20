@@ -4,57 +4,45 @@
  *
  * You can add an optional custom header image to header.php like so ...
  *
-	<?php the_header_image_tag(); ?>
  *
  * @link https://developer.wordpress.org/themes/functionality/custom-headers/
  *
- * @package Agility_WP
+ * @package AgilityWP
  */
 
+ namespace AgilityWP\CustomHeader;
 
+ if ( ! defined( 'ABSPATH' ) ) {
+	 exit; // Exit if accessed directly.
+ }
 
-namespace AgilityWP\CustomHeader;
+ class CustomHeader {
+	 /**
+	  * Display the custom header.
+	  */
+	 public static function display() {
+		$header_image = get_header_image();
+		$header_style = sprintf( "style='background-image: url(%s);'", esc_url( $header_image ) );
+		$header_class = 'header-image';
 
+		 if ( get_theme_mod( 'set_page_header' ) && $header_image ) {
+			 ?>
 
-if ( ! function_exists( 'agilitywp_header_style' ) ) :
-	/**
-	 * Styles the header image and text displayed on the blog.
-	 *
-	 * @see agilitywp_custom_header_setup().
-	 */
-	function agilitywp_header_style() {
-		$header_text_color = get_header_textcolor();
+		   <div <?php echo $header_style; ?> class="<?php echo esc_attr( $header_class ); ?>">
+			 <div class="container">
+			   <div class="site-branding d-flex justify-content-start">
+				 <div class="text-start">
+				   <h1 class="site-title"><?php echo esc_html( get_bloginfo( 'name' ) ); ?></h1>
+				   <p class="site-description"><?php echo esc_html( get_bloginfo( 'description' ) ); ?></p>
+				 </div>
+			   </div>
+			 </div>
+		   </div>
 
-		/*
-		 * If no custom options for text are set, let's bail.
-		 * get_header_textcolor() options: Any hex value, 'blank' to hide text. Default: add_theme_support( 'custom-header' ).
-		 */
-		if ( get_theme_support( 'custom-header', 'default-text-color' ) === $header_text_color ) {
-			return;
-		}
+		 <?php
 
-		// If we get this far, we have custom styles. Let's do this.
-		?>
-		<style type="text/css">
-		<?php
-		// Has the text been hidden?
-		if ( ! display_header_text() ) :
-			?>
-			.site-title,
-			.site-description {
-				position: absolute;
-				clip: rect(1px, 1px, 1px, 1px);
-				}
-			<?php
-			// If the user has set a custom color for the text use that.
-		else :
-			?>
-			.site-title a,
-			.site-description {
-				color: #<?php echo esc_attr( $header_text_color ); ?>;
-			}
-		<?php endif; ?>
-		</style>
-		<?php
-	}
-endif;
+		 }
+	   }
+ }
+
+ add_action( 'custom_header_hook', array( __NAMESPACE__ . '\CustomHeader', 'display' ) );
