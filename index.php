@@ -13,9 +13,10 @@
  */
 
 get_header();
+if ( get_header_image()) {
+	do_action('custom_header_hook');
+}
 ?>
-
-<?php do_action('custom_header_hook',); ?>
 
 <div class="container">
 	<div class="row mb-5">

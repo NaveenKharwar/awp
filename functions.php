@@ -156,7 +156,6 @@ function agilitywp_styles() {
 	wp_style_add_data( 'agilitywp-style', 'rtl', 'replace' );
 	wp_enqueue_style( 'agilitywp-theme', AGILITYWP_THEME_DIR . 'css/theme.css', array(), AGILITYWP_VERSION );
 	wp_enqueue_style( 'agilitywp-theme-boxicons', AGILITYWP_THEME_DIR . 'boxicons/css/boxicons.min.css', array(), AGILITYWP_VERSION );
-	wp_enqueue_style( 'agilitywp-google-fonts', AGILITYWP_THEME_DIR . 'css/fonts.css', array(), AGILITYWP_VERSION );
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
@@ -178,6 +177,56 @@ function agilitywp_customize_preview_js() {
 	wp_enqueue_script( 'agilitywp-customizer', AGILITYWP_THEME_DIR . 'js/customizer.min.js', array( 'customize-preview' ), AGILITYWP_VERSION, true );
 }
 add_action( 'customize_preview_init', 'agilitywp_customize_preview_js' );
+
+/* ---------------------------------------------------------------------------------------------
+   THEME FONTS
+   --------------------------------------------------------------------------------------------- */
+
+class WebfontLoader {
+	private $font_families;
+	private $fonts_url;
+	private $contents;
+
+	/**
+	 * Class constructor.
+	 */
+	public function __construct() {
+		add_filter( 'wptt_get_local_fonts_subfolder_name', array( $this, 'set_local_fonts_base_path' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_fonts' ) );
+		require THEME_DIR . '/inc/classes/webfont-loader/wptt-webfont-loader.php';
+	}
+
+	/**
+	 * Set the base path for local fonts.
+	 *
+	 * @param string $path The base path for local fonts.
+	 * @return string The modified base path for local fonts.
+	 */
+	public function set_local_fonts_base_path( $path ) {
+		return 'agility-fonts';
+	}
+
+	/**
+	 * Enqueue the fonts.
+	 */
+	public function enqueue_fonts() {
+		$this->font_families = array(
+			'Lato:wght@300;400;500;600;700',
+			'Inter:wght@100;200;300;400;500;600;700'
+		);
+
+		$this->fonts_url = add_query_arg( array(
+			'family' => implode( '&family=', $this->font_families ),
+			'display' => 'swap',
+		), 'https://fonts.googleapis.com/css2' );
+
+		$this->contents = wptt_get_webfont_url( esc_url_raw( $this->fonts_url ) );
+
+		wp_enqueue_style( 'lato', $this->contents, array(), AGILITYWP_VERSION );
+	}
+}
+
+$webfont_loader = new WebfontLoader();
 
 /* ---------------------------------------------------------------------------------------------
    LOAD JETPACK COMPATIBILITY FILE.
@@ -229,3 +278,4 @@ require THEME_DIR . '/inc/customizer/options/header-image.php';
 require THEME_DIR . '/inc/customizer/options/logo-resizer.php';
 require THEME_DIR . '/inc/compatibility/page_builders.php';
 require THEME_DIR . '/inc/compatibility/elementor.php';
+require THEME_DIR . '/inc/classes/PostMeta.php';

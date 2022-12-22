@@ -53,3 +53,15 @@
 	margin-left: 6px;
 	font-size: 19px;
 }
+
+@mixin left_icon {
+	font-family: boxicons !important;
+	font-weight: 400;
+	font-style: normal;
+	font-variant: normal;
+	line-height: 1;
+	text-rendering: auto;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}

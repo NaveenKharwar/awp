@@ -11,7 +11,6 @@ const gruntConfig = function( grunt ) {
 				files: {
 					'assets/css/theme.css': 'resources/sass/theme.scss',
 					'style.css': 'resources/sass/style.scss',
-					'assets/css/fonts.css': 'resources/sass/fonts.scss',
 					'assets/css/style-editor.css':
             'resources/sass/editor/style-editor.scss',
 					'assets/css/customizer/range-control.css': 'resources/sass/customizer/range-control.scss',
@@ -26,7 +25,6 @@ const gruntConfig = function( grunt ) {
 				files: {
 					'assets/css/theme.css': 'resources/sass/theme.scss',
 					'style.css': 'resources/sass/style.scss',
-					'assets/css/fonts.css': 'resources/sass/fonts.scss',
 					'assets/css/style-editor.css':
             'resources/sass/editor/style-editor.scss',
 					'assets/css/customizer/range-control.css': 'resources/sass/customizer/range-control.scss',
@@ -37,21 +35,11 @@ const gruntConfig = function( grunt ) {
 		cssmin: {
 			build: {
 				expand: true,
-				src: [ 'assets/css/theme.css', 'assets/css/fonts.css' ],
+				src: [ 'assets/css/theme.css' ],
 				ext: '.min.css',
 			},
 		},
 		copy: {
-			font: {
-				expand: true,
-				flatten: true,
-				src: [
-					'resources/fonts/Mulish/**',
-					'resources/fonts/IBMPlexSans/**',
-				],
-				dest: 'assets/fonts/',
-				filter: 'isFile',
-			},
 			bootstrap_style: {
 				expand: true,
 				flatten: true,

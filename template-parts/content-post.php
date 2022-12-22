@@ -10,45 +10,15 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-<div class="entry-meta row">
-	<div class="author col-sm-4">
-		<img src="<?php echo esc_url( get_avatar_url( 'ID' ) ); ?>" />
-		<div class="author-name">
-			<p>Author</p>
-			<span><a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" title="<?php echo esc_attr( get_the_author() ); ?>"><?php the_author(); ?></a></span>
-		</div>
-	</div>
-	<div class="col-sm-4">
-		<p>Published On</p>
-		<p><?php echo get_the_date(); ?></p>
-	</div>
-	<div class="col-sm-4">
-		<p>
-		<?php
-		$agilitywp_comment_count = get_comments_number();
-		if ( '1' === $agilitywp_comment_count ) {
-			printf(
-				/* translators: 1: title. */
-				esc_html__( 'One comment', 'agilitywp' )
-			);
-		} else {
-			printf(
-				/* translators: 1: comment count number, 2: title. */
-				esc_html( _nx( '%1$s comment', '%1$s comments', $agilitywp_comment_count, 'comments title', 'agilitywp' ) ),
-				number_format_i18n( $agilitywp_comment_count ) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-			);
-		}
-		?>
-		</p>
-		<span><a href="<?php the_permalink(); ?>#commentform">Join the conversation</a></span>
-	</div>
-</div><!-- .entry-meta -->
 
 	<?php
-	if ( has_post_thumbnail() ) {
-		?>
-			<?php agilitywp_post_thumbnail(); ?>
-		<?php
+	if ( !get_theme_mod( 'set_page_header' ) ) {
+		echo '<div class="entry-meta">';
+		do_action( 'meta_view', 'design-one' );
+		echo '</div>';
+		if ( has_post_thumbnail()  ) {
+			agilitywp_post_thumbnail();
+		}
 	}
 	?>
 	<header class="entry-header">
