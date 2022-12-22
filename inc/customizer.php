@@ -23,23 +23,6 @@ function agilitywp_customize_register( $wp_customize ) {
 	$wp_customize->get_panel( 'nav_menus')->title = esc_html__( 'Navigation Menu', 'agilitywp' );
 	$wp_customize->get_section( 'static_front_page' )->priority  = 12;
 	$wp_customize->get_panel( 'nav_menus' )->priority  = 11;
-
-	if ( isset( $wp_customize->selective_refresh ) ) {
-		$wp_customize->selective_refresh->add_partial(
-			'blogname',
-			array(
-				'selector'        => '.site-title a',
-				'render_callback' => 'agilitywp_customize_partial_blogname',
-			)
-		);
-		$wp_customize->selective_refresh->add_partial(
-			'blogdescription',
-			array(
-				'selector'        => '.site-description',
-				'render_callback' => 'agilitywp_customize_partial_blogdescription',
-			)
-		);
-	}
 }
 add_action( 'customize_register', 'agilitywp_customize_register', 50);
 

@@ -41,7 +41,7 @@
 					<img src="<?php echo esc_url( $agilitywp_custom_logo_url ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" style="max-width: <?php echo $logo_width; ?>px;"/>
 				</a>
 				</div>
-				<?php else : ?>
+				<?php elseif ( display_header_text ()) :?>
 				<div class="site-info">
 					<p class="site-title">
 						<a href="<?php echo home_url(); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>

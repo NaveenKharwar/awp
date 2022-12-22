@@ -42,11 +42,6 @@ class CustomHeader {
 			  <?php
 				if ( is_single() ) {
 					do_action( 'meta_view', 'design-two' );
-				} else {
-					echo '<h1 class="site-title">' . esc_html( get_bloginfo( 'name' ) ) . '</h1>';
-					if ( $description = get_bloginfo( 'description' ) ) {
-						echo '<p class="site-description">' . esc_html( $description ) . '</p>';
-					}
 				}
 				?>
 						 </div>
