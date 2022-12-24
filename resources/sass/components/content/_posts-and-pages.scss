@@ -111,3 +111,212 @@ article {
     }
   }
 }
+
+// Header Image Style
+.header-image {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  padding-top: 250px;
+  padding-bottom: 250px;
+  position: relative;
+  &::after {
+    content: "";
+    background-color: rgba(32,54,86,.6);
+    display: block;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    width: 100%;
+  }
+}
+
+// Design One for the post meta layout
+.postmeta__design-one {
+  margin: 0 auto;
+  pointer-events: auto;
+  padding: 28px 31px;
+  box-shadow: 3px 3px 5px #00000008;
+  box-sizing: border-box;
+  background: #ffffffcc;
+  &.entry-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);;
+    grid-gap: 10px;
+    font-weight: 500;
+    margin: 1.6rem 0 0 0;
+    font-family: $accent-font;
+    color: $light-gray;
+    margin-bottom: 16px;
+    .author {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      img {
+        width: 60px;
+        height: 60px;
+        border-radius: 5px;
+        @include media-breakpoint-down(lg) {
+          width: 40px;
+          height: 40px;
+          margin-bottom: 6px;
+        }
+      }
+      .author-name {
+        margin-left: 1rem;
+        span {
+          font-size: 1rem;
+        }
+      }
+      @include media-breakpoint-down(lg) {
+        grid-column: 1 / span 2;
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 15px;
+      }
+    }
+    .publish-date,
+    .redirect-comment {
+      display: flex;
+      align-items: center
+    }
+    .publish-date {
+      justify-content: center;
+      @include media-breakpoint-down(lg) {
+        justify-content: left;
+      }
+    }
+    .redirect-comment {
+      justify-content: end;
+      p {
+        @include left_icon;
+        &:before {
+          content: "\eb81";
+        }
+      }
+    }
+    p {
+      margin-bottom: 0;
+    }
+    a:link,
+    a:visited,
+    a:focus {
+      color: $dark;
+    }
+    @include media-breakpoint-down(lg) {
+      grid-template-columns: 50% 50%;
+    }
+  }
+  &.postmeta__is-page {
+    &.entry-info {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .redirect-comment {
+      @include media-breakpoint-down(lg) {
+        grid-column: 1 / span 2;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+// Design Two for the post meta layout
+.postmeta__design-two {
+  color: rgba(255, 255, 255, .6);
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
+  bottom: 60px;
+  position: absolute;
+  width: 750px;
+  z-index: 1;
+
+  @include media-breakpoint-down(lg) {
+    width: auto;
+  }
+
+  a {
+    color: inherit;
+
+    &:hover,
+    &:visited,
+    &:focus {
+      color: inherit;
+    }
+  }
+
+  .title {
+    grid-column: 1 / span 4;
+
+    h1 {
+      color: $white;
+      font-weight: $font-weight-bold;
+
+      @include media-breakpoint-down(lg) {
+        font-size: 2rem;
+      }
+      @include media-breakpoint-down(md) {
+        font-size: 1.7rem;
+      }
+    }
+  }
+
+  .author,
+  .publish-date,
+  .redirect-comment {
+    display: flex;
+    align-items: center;
+    font-size: 0.89rem;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .publish-date {
+    justify-content: center;
+    @include media-breakpoint-down(lg) {
+      grid-column: 2 span;
+      justify-content: start;
+    }
+  }
+
+  .author {
+    gap: 20px;
+
+    img {
+      border-radius: 50%;
+      width: 40px;
+      filter: grayscale(100%);
+      @include media-breakpoint-down (lg) {
+        filter: grayscale(0);
+      }
+    }
+    @include media-breakpoint-down (lg) {
+      grid-column: 1 / span 4;
+      margin-bottom: 25px;
+    }
+  }
+
+  .redirect-comment {
+    justify-content: end;
+    p {
+      @include left_icon;
+
+      &:before {
+        content: "\eb81";
+      }
+    }
+    @include media-breakpoint-down(lg) {
+      grid-column: 2 span;
+      justify-content: center;
+    }
+  }
+
+  &:hover {
+    img {
+      filter: grayscale(0)
+    }
+  }
+}
