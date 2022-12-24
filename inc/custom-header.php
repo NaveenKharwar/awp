@@ -40,8 +40,8 @@ class CustomHeader {
 			 <div class="container">
 					<div class="col-lg-10 col-md-12 col-sm-12 mx-auto pl-lg-0">
 			  <?php
-				if ( is_single() ) {
-					do_action( 'meta_view', 'design-two' );
+				if ( is_singular() ) {
+					do_action( 'meta_view', 'postmeta__design-two' );
 				}
 				?>
 						 </div>

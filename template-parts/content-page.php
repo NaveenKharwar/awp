@@ -10,6 +10,16 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<?php
+	if ( !get_theme_mod( 'set_page_header' ) ) {
+		echo '<div class="entry-meta">';
+		do_action( 'meta_view', 'postmeta__design-one' );
+		echo '</div>';
+		if ( has_post_thumbnail()  ) {
+			agilitywp_post_thumbnail();
+		}
+	}
+	?>
 	<header class="entry-header">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->

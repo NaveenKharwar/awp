@@ -14,7 +14,7 @@
 	<?php
 	if ( !get_theme_mod( 'set_page_header' ) ) {
 		echo '<div class="entry-meta">';
-		do_action( 'meta_view', 'design-one' );
+		do_action( 'meta_view', 'postmeta__design-one' );
 		echo '</div>';
 		if ( has_post_thumbnail()  ) {
 			agilitywp_post_thumbnail();
