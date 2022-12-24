@@ -246,6 +246,17 @@
     padding: 0;
     background-color: transparent;
     color: $black;
+    @include media-breakpoint-down(lg) {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      display: block;
+      float: right;
+      height: 50px;
+      width: 50px;
+      margin: 18px;
+      margin-right: 0;
+    }
 
     .bx.bx-grid-small {
       font-size: 5rem;
@@ -319,43 +330,11 @@
   opacity: 1;
 }
 
+
 @include media-breakpoint-down(lg) {
   .site-navigation {
     // Humberger Toggle
     .agility_hamburger {
-      background-color: transparent;
-      border: none;
-      cursor: pointer;
-      display: block;
-      float: right;
-      height: 50px;
-      width: 50px;
-      margin: 18px;
-      margin-right: 0;
-
-      .hamburger-toggle {
-        position: relative;
-      }
-
-      span {
-        background-color: $black;
-        width: 80%;
-        height: 4px;
-        display: block;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        transition: transform 0.5s, width 0.5s;
-      }
-
-      .burger_line-one {
-        transform: translate(-50%, -17px);
-      }
-
-      .burger_line-three {
-        transform: translate(-50%, 11px);
-      }
 
       &.open-humberger {
         span {
@@ -375,5 +354,40 @@
         }
       }
     }
+  }
+}
+
+.hamburger-toggle {
+  position: relative;
+
+  span {
+    background-color: $black;
+    width: 80%;
+    height: 4px;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.5s, width 0.5s;
+
+    &.burger_line-one {
+      transform: translate(-50%, -17px);
+      @include media-breakpoint-down(md) {
+        transform: translate(-50%, -13px);
+      }
+    }
+
+    &.burger_line-three {
+      transform: translate(-50%, 11px);
+      @include media-breakpoint-down(md) {
+      transform: translate(-50%, 10px);
+      }
+    }
+    @include media-breakpoint-down(sm) {
+      width: 70%;
+      height: 3px;
+    }
+
   }
 }
